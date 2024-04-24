@@ -1,0 +1,36 @@
+{
+	"frame_path": {
+		"line_scan": {
+			"scan_path_label": {
+				"type": "Label",
+				"text": "训练平台数据目录"
+			},
+			"scan_path_entry": {
+				"type": "Entry",
+				"width": "50",
+				"key": "scan_path"
+			}
+		},
+		"line_out": {
+			"out_path_label": {
+				"type": "Label",
+				"text": "输出目录"
+			},
+			"out_path_entry": {
+				"type": "Message",
+				"width": "1000",
+				"key": "out_path"
+			}
+		}
+	},
+	"frame_button": {
+		"line_1": {
+			"confirm_button": {
+				"type": "Button",
+				"text": "确认",
+				"key": "confirm",
+				"command": "self.confirm"
+			}
+		}
+	}
+}

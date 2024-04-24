@@ -1,0 +1,224 @@
+{
+	"frame_path": {
+		"line_scan": {
+			"scan_path_button": {
+				"type": "Button",
+				"text": "输入目录",
+				"key": "scan_path",
+				"command": "self.select_folder"
+			},
+			"scan_path_entry": {
+				"type": "Entry",
+				"width": "50",
+				"key": "scan_path"
+			}
+		},
+		"line_out": {
+			"out_path_button": {
+				"type": "Button",
+				"text": "输出目录",
+				"key": "out_path",
+				"command": "self.select_folder"
+			},
+			"out_path_entry": {
+				"type": "Entry",
+				"width": "50",
+				"key": "out_path"
+			}
+		}
+	},
+	"frame_aug_configuration": {
+		"line_times": {
+			"aug_times_label": {
+				"type": "Label",
+				"text": "增强次数"
+			},
+			"aug_times_entry": {
+				"type": "Entry",
+				"width": "5",
+				"key": "times"
+			},
+			"aug_color_label": {
+				"type": "Button",
+				"text": "填充颜色",
+				"key": "select_color",
+				"command": "self.select_color"
+			},
+			"aug_color_entry": {
+				"type": "Entry",
+				"width": "10",
+				"key": "mask_color"
+			}
+		},
+		"line_resize": {
+			"angle_low_label": {
+				"type": "Label",
+				"text": "旋转角度下限"
+			},
+			"angle_low_entry": {
+				"type": "Entry",
+				"width": "5",
+				"key": "angle_low"
+			},
+			"angle_high_label": {
+				"type": "Label",
+				"text": "旋转角度上限"
+			},
+			"angle_high_entry": {
+				"type": "Entry",
+				"width": "5",
+				"key": "angle_high"
+			},
+			"angle_range_label": {
+				"type": "Label",
+				"text": "旋转角度跨度"
+			},
+			"angle_range_entry": {
+				"type": "Entry",
+				"width": "5",
+				"key": "angle_range"
+			}
+		},
+		"line_hsv": {
+			"hsv_ratio_label": {
+				"type": "Label",
+				"text": "HSV变化概率"
+			},
+			"hsv_ratio_entry": {
+				"type": "Entry",
+				"width": "5",
+				"key": "hsv_ratio"
+			},
+			"hsv_limit_label": {
+				"type": "Label",
+				"text": "HSV最大变化幅度"
+			},
+			"hsv_limit_entry": {
+				"type": "Entry",
+				"width": "5",
+				"key": "hsv_limit"
+			}
+		},
+		"line_math": {
+			"sharpen_label": {
+				"type": "Label",
+				"text": "锐化概率"
+			},
+			"sharpen_entry": {
+				"type": "Entry",
+				"width": "5",
+				"key": "sharpen"
+			},
+			"gaussnoise_label": {
+				"type": "Label",
+				"text": "高斯噪声概率"
+			},
+			"gaussnoise_entry": {
+				"type": "Entry",
+				"width": "5",
+				"key": "gaussnoise"
+			},
+			"gaussblur_label": {
+				"type": "Label",
+				"text": "高斯模糊概率"
+			},
+			"gaussblur_entry": {
+				"type": "Entry",
+				"width": "5",
+				"key": "gaussblur"
+			}
+		},
+		"line_bright_contrast": {
+			"brightness_low_label": {
+				"type": "Label",
+				"text": "亮度下限"
+			},
+			"brightness_low_entry": {
+				"type": "Entry",
+				"width": "5",
+				"key": "brightness_low"
+			},
+			"brightness_high_label": {
+				"type": "Label",
+				"text": "亮度上限"
+			},
+			"brightness_high_entry": {
+				"type": "Entry",
+				"width": "5",
+				"key": "brightness_high"
+			},
+			"contrast_low_label": {
+				"type": "Label",
+				"text": "对比度下限"
+			},
+			"contrast_low_entry": {
+				"type": "Entry",
+				"width": "5",
+				"key": "contrast_low"
+			},
+			"contrast_high_label": {
+				"type": "Label",
+				"text": "对比度上限"
+			},
+			"contrast_high_entry": {
+				"type": "Entry",
+				"width": "5",
+				"key": "contrast_high"
+			},
+			"randombrightnesscontrast_label": {
+				"type": "Label",
+				"text": "触发概率"
+			},
+			"randombrightnesscontrast_entry": {
+				"type": "Entry",
+				"width": "5",
+				"key": "randombrightnesscontrast"
+			}
+		}
+	},
+	"frame_flip": {
+		"line_flip": {
+			"flip_x_checkbutton": {
+				"type": "Checkbutton",
+				"text": "左右翻转",
+				"key": "flip_x"
+			},
+			"flip_y_checkbutton": {
+				"type": "Checkbutton",
+				"text": "上下翻转",
+				"key": "flip_y"
+			}
+		}
+	},
+	"frame_button": {
+		"line1": {
+			"readin_button": {
+				"type": "Button",
+				"text": "写入配置",
+				"key": "readin",
+				"command": "self.readin"
+			},
+			"read_button": {
+				"type": "Button",
+				"text": "读取配置",
+				"key": "read",
+				"command": "self.read"
+			},
+			"confirm_button": {
+				"type": "Button",
+				"text": "确认增强",
+				"key": "confirm",
+				"command": "self.confirm"
+			}
+		}
+	},
+	"frame_progress_bar": {
+		"line1": {
+			"progressbar": {
+				"type": "Progressbar",
+				"key": "progress_bar",
+				"width": 500
+			}
+		}
+	}
+}

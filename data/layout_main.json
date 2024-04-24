@@ -1,0 +1,98 @@
+{
+	"frame_models": {
+		"line_detect": {
+			"detect_label": {
+				"type": "Label",
+				"text": "目标检测"
+			},
+			"detect_aug_button": {
+				"type": "Button",
+				"text": "图像增强",
+				"width": 20,
+				"key": "detect_aug",
+				"command": "self.new_window"
+			}
+		},
+		"line_segment": {
+			"segment_label": {
+				"type": "Label",
+				"text": "目标分割"
+			},
+			"segment_aug_button": {
+				"type": "Button",
+				"text": "图像增强",
+				"width": 20,
+				"key": "segment_aug",
+				"command": "self.new_window"
+			},
+			"segment_optimize_button": {
+				"type": "Button",
+				"text": "减少密集点",
+				"width": 20,
+				"key": "segment_optimize",
+				"command": "self.new_window"
+			},
+			"segment_connect_hollow_button": {
+				"type": "Button",
+				"text": "构造中空多边形",
+				"width": 20,
+				"key": "segment_connect_hollow",
+				"command": "self.new_window"
+			}
+		},
+		"line_obb": {
+			"obb_label": {
+				"type": "Label",
+				"text": "旋转目标检测"
+			},
+			"obb_aug_button": {
+				"type": "Button",
+				"text": "图像增强",
+				"width": 20,
+				"key": "obb_aug",
+				"command": "self.new_window"
+			},
+			"obb_crop_button": {
+				"type": "Button",
+				"text": "裁剪小图",
+				"width": 20,
+				"key": "obb_crop",
+				"command": "self.new_window"
+			},
+			"obb_splice_button": {
+				"type": "Button",
+				"text": "拼接小图",
+				"width": 20,
+				"key": "obb_splice",
+				"command": "self.new_window"
+			}
+		},
+		"line_other": {
+			"obb_label1": {
+				"type": "Label",
+				"text": ""
+			},
+			"random_move_button": {
+				"type": "Button",
+				"text": "随机移出图片",
+				"width": 20,
+				"key": "random_move",
+				"command": "self.new_window"
+			},
+			"train_platform_simplify_paths_button": {
+				"type": "Button",
+				"text": "训练平台路径转换",
+				"width": 20,
+				"key": "train_platform_simplify_paths",
+				"command": "self.new_window"
+			},
+			"pt_cv_quan_button": {
+				"type": "Button",
+				"text": "绘制胶粒外圈",
+				"width": 20,
+				"key": "pt_cv_quan",
+				"command": "self.new_window"
+			}
+		}
+	}
+}

@@ -1,0 +1,85 @@
+{
+	"frame_path": {
+		"line_scan": {
+			"scan_path_button": {
+				"type": "Button",
+				"text": "输入目录",
+				"key": "scan_path",
+				"command": "self.select_folder"
+			},
+			"scan_path_entry": {
+				"type": "Entry",
+				"width": "50",
+				"key": "scan_path"
+			}
+		}
+	},
+	"frame_aug_configuration": {
+		"line_times": {
+			"color_low_label": {
+				"type": "Label",
+				"text": "颜色下限"
+			},
+			"color_low_entry": {
+				"type": "Entry",
+				"width": "5",
+				"key": "color_low"
+			},
+			"color_high_label": {
+				"type": "Label",
+				"text": "颜色上限"
+			},
+			"color_high_entry": {
+				"type": "Entry",
+				"width": "5",
+				"key": "color_high"
+			},
+			"box_label": {
+				"type": "Label",
+				"text": "盒"
+			},
+			"box_entry": {
+				"type": "Entry",
+				"width": "5",
+				"key": "box"
+			}
+		}
+	},
+	"frame2": {
+		"line_label": {
+			"label_label": {
+				"type": "Label",
+				"text": "绘制标签"
+			},
+			"label_entry": {
+				"type": "Entry",
+				"width": "10",
+				"key": "label"
+			},
+			"label_type_checkbutton": {
+				"type": "Checkbutton",
+				"text": "覆盖原标签",
+				"key": "label_type"
+			}
+		}
+	},
+	"frame_button": {
+		"line1": {
+			"confirm_button": {
+				"type": "Button",
+				"text": "确认",
+				"key": "confirm",
+				"command": "self.confirm"
+			}
+		}
+	},
+	"frame_progress_bar": {
+		"line1": {
+			"progressbar": {
+				"type": "Progressbar",
+				"key": "progress_bar",
+				"width": 500
+			}
+		}
+	}
+}

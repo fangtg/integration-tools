@@ -1,0 +1,62 @@
+{
+	"frame_path": {
+		"line_scan": {
+			"scan_path_button": {
+				"type": "Button",
+				"text": "输入目录",
+				"key": "scan_path",
+				"command": "self.select_color"
+			},
+			"scan_path_entry": {
+				"type": "Entry",
+				"width": "50",
+				"key": "scan_path"
+			}
+		},
+		"line_out": {
+			"out_path_button": {
+				"type": "Button",
+				"text": "输出目录",
+				"key": "out_path",
+				"command": "self.select_color"
+			},
+			"out_path_entry": {
+				"type": "Entry",
+				"width": "50",
+				"key": "out_path"
+			}
+		}
+	},
+	"frame2": {
+		"line_scan": {
+			"prefix_label": {
+				"type": "Label",
+				"text": "拼接前缀"
+			},
+			"prefix_entry": {
+				"type": "Entry",
+				"width": "10",
+				"key": "prefix"
+			}
+		}
+	},
+	"frame_button": {
+		"line_1": {
+			"confirm_button": {
+				"type": "Button",
+				"text": "确认",
+				"key": "confirm",
+				"command": "self.confirm"
+			}
+		}
+	},
+	"frame_progress_bar": {
+		"line1": {
+			"progressbar": {
+				"type": "Progressbar",
+				"key": "progress_bar",
+				"width": 500
+			}
+		}
+	}
+}

@@ -1,0 +1,58 @@
+{
+  "main": {
+    "text": "整合工具",
+    "layout_path": "./data/layout_main.json",
+    "size": "600x360",
+    "ico": "../person/国王King01.ico"
+  },
+  "detect_aug": {
+    "text": "目标检测图像增强",
+    "layout_path": "./data/layout_aug_detect.json",
+    "method": "detect_aug"
+  },
+  "segment_aug": {
+    "text": "目标分割图像增强",
+    "layout_path": "./data/layout_aug_segment.json",
+    "method": "segment_aug"
+  },
+  "segment_optimize": {
+    "text": "目标分割减少密集点",
+    "layout_path": "./data/layout_optimize_seg.json",
+    "method": "segment_optimize"
+  },
+  "segment_connect_hollow": {
+    "text": "目标分割构造中空多边形",
+    "layout_path": "./data/layout_connect_hollow.json",
+    "method": "segment_connect_hollow"
+  },
+  "obb_aug": {
+    "text": "旋转目标检测图像增强",
+    "layout_path": "./data/layout_aug_obb.json",
+    "method": "obb_aug"
+  },
+  "obb_crop": {
+    "text": "旋转目标检测裁剪小图",
+    "layout_path": "./data/layout_obb_crop.json",
+    "method": "obb_crop"
+  },
+  "obb_splice": {
+    "text": "旋转目标检测拼接全图",
+    "layout_path": "./data/layout_obb_splice.json",
+    "method": "obb_splice"
+  },
+  "random_move": {
+    "text": "随机移出图片",
+    "layout_path": "./data/layout_random_move.json",
+    "method": "random_move"
+  },
+  "train_platform_simplify_paths": {
+    "text": "训练平台路径转换",
+    "layout_path": "./data/layout_simplify_paths.json",
+    "method": "train_platform_simplify_paths"
+  },
+  "pt_cv_quan": {
+    "text": "绘制胶粒外圈",
+    "layout_path": "./data/layout_pt_cv_quan.json",
+    "method": "pt_cv_quan"
+  }
+}
