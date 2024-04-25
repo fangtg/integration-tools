@@ -11,6 +11,13 @@
 				"width": 20,
 				"key": "detect_aug",
 				"command": "self.new_window"
+			},
+			"detect_infer_button": {
+				"type": "Button",
+				"text": "图像仿真",
+				"width": 20,
+				"key": "detect_infer",
+				"command": "self.new_window"
 			}
 		},
 		"line_segment": {

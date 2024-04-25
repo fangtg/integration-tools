@@ -53,74 +53,114 @@ class fWindow(tkinter.Tk):
             for line_name, line_data in frame_data.items():
                 column_index = 0
                 for control_name, control_data in line_data.items():
-                    c_type = control_data['type']
-                    c_text = control_data['text'] if 'text' in control_data.keys() else None
-                    c_width = control_data['width'] if 'width' in control_data.keys() else None
-                    c_key = control_data['key'] if 'key' in control_data.keys() else None
-                    c_command = control_data['command'] if 'command' in control_data.keys() else None
-                    c_value = control_data['value'] if 'value' in control_data.keys() else None
-                    c_direction = control_data['direction'] if 'direction' in control_data.keys() else None
-                    if c_type == 'Label':
-                        control = tkinter.Label(frame, text=c_text, width=c_width)
-                    elif c_type == 'Entry':
+                    c, keys = dict(), control_data.keys()
+                    c['type'] = control_data['type'] if 'type' in keys else 'Label'  # 类型
+                    c['text'] = control_data['text'] if 'text' in keys else None  # 文本
+                    c['width'] = control_data['width'] if 'width' in keys else None  # 宽度
+                    c['key'] = control_data['key'] if 'key' in keys else None  # 主键
+                    c['command'] = control_data['command'] if 'command' in keys else None  # 按键命令
+                    c['value'] = control_data['value'] if 'value' in keys else None  # 单选框选项
+                    c['direction'] = control_data['direction'] if 'direction' in keys else None  # 单选框选项方向
+                    c['filetypes'] = control_data['filetypes'] if 'filetypes' in keys else []  # 文件选择后缀名
+                    c['lift'] = control_data['lift'] if 'lift' in keys else None  # 点击任务结束后是否置顶
+
+                    if c['type'] == 'Label':
+                        control = tkinter.Label(frame, text=c['text'], width=c['width'])
+                    elif c['type'] == 'Entry':
                         var = tkinter.StringVar()
-                        self.vars[c_key] = var
-                        control = tkinter.Entry(frame, textvariable=var, width=c_width)
-                    elif c_type == 'Button':
-                        control = tkinter.Button(frame, text=c_text, width=c_width,
-                                                 command=lambda command=c_command, text=c_text, key=c_key:
-                                                 self.click(command, text, key))
-                    elif c_type == 'Radiobutton':
-                        if c_value:
-                            control = tkinter.Frame(frame)
-                            var = tkinter.IntVar()
-                            var.set(0)
-                            self.vars[c_key] = var
-                            for i, value in enumerate(c_value):
-                                control_son = tkinter.Radiobutton(control, text=value, value=i, variable=var)
-                                control_son.pack(side=c_direction)
-                    elif c_type == 'Checkbutton':
+                        self.vars[c['key']] = var
+                        control = tkinter.Entry(frame, textvariable=var, width=c['width'])
+                    elif c['type'] == 'Button':
+                        control = tkinter.Button(frame, text=c['text'], width=c['width'],
+                                                 command=lambda command=c['command'], config=c: self.click(command,
+                                                                                                           config))
+                    elif c['type'] == 'Radiobutton':
+                        control = tkinter.Frame(frame)
+                        var = tkinter.IntVar()
+                        var.set(0)
+                        self.vars[c['key']] = var
+                        for i, value in enumerate(c['value']):
+                            control_son = tkinter.Radiobutton(control, text=value, value=i, variable=var)
+                            control_son.pack(side=c['direction'])
+                    elif c['type'] == 'Checkbutton':
                         var = tkinter.BooleanVar()
-                        self.vars[c_key] = var
-                        control = tkinter.Checkbutton(frame, text=c_text, variable=var)
-                    elif c_type == 'Progressbar':
-                        control = tkinter.ttk.Progressbar(frame, length=c_width)
-                    elif c_type == 'Message':
+                        self.vars[c['key']] = var
+                        control = tkinter.Checkbutton(frame, text=c['text'], width=c['width'], variable=var)
+                    elif c['type'] == 'Progressbar':
+                        control = tkinter.ttk.Progressbar(frame, length=c['width'])
+                    elif c['type'] == 'Message':
                         var = tkinter.StringVar()
-                        self.vars[c_key] = var
-                        control = tkinter.Message(frame, textvariable=var, width=c_width)
+                        self.vars[c['key']] = var
+                        control = tkinter.Message(frame, textvariable=var, width=c['width'])
                     else:
                         control = None
-                    if c_key: self.controls[c_key] = control
+                    if c['key']: self.controls[c['key']] = control
                     control.grid(row=row_index, column=column_index)
-                    if c_type == 'Progressbar': control.grid_remove()
+                    if c['type'] == 'Progressbar': control.grid_remove()
                     column_index += 1
                 row_index += 1
 
-    def click(self, command, text, key):
-        eval(f'{command}(text, key)')
+    def click(self, command, c):
+        eval(f'{command}(c)')
+        if c['lift']: self.lift()
 
-    def new_window(self, title, key):
+    def new_window(self, c):
         """
         打开新窗口
         """
-        title, size, ico = init_window_config(key)
+        title, size, ico = init_window_config(c['key'])
         if not size: size = self.size
         if not ico: ico = self.ico
-        fToplevel(key, title, size, ico)
+        fToplevel(c['key'], title, size, ico)
 
-    def select_folder(self, text, key):
-        folder_path = filedialog.askdirectory()
-        if folder_path != '':
-            folder_path = folder_path.replace('/', '\\')
-            self.vars[key].set(folder_path)
+    def message(self, text: str = ''):
+        tkinter.messagebox.showerror(title=text, message=text)
         self.lift()
 
-    def read(self, text, key):
+    def confirm(self, c):
+        """
+        遍历文件处理
+        """
+        self.controls['confirm']['state'] = tkinter.DISABLED
+        try:
+            eval(f'{self.method}(self, self.formatting_config())')
+        except Exception:
+            self.message('参数错误')
+            error(message=f'{fTime().format()}: {self.confirm.__name__}\n{traceback.format_exc()}')
+        self.controls['confirm']['state'] = tkinter.NORMAL
+
+    def ask_folder(self):
+        folder_path = filedialog.askdirectory(parent=self)
+        return folder_path
+
+    def ask_file(self, filetypes):
+        file_path = filedialog.askopenfilename(parent=self, filetypes=filetypes)
+        return file_path
+
+    def select_folder(self, c):
+        folder_path = self.ask_folder()
+        if folder_path != '':
+            # folder_path = folder_path.replace('/', '\\')
+            self.vars[c['key']].set(folder_path)
+
+    def select_file(self, c):
+        file_path = self.ask_file(c['filetypes'])
+        if file_path != '':
+            # file_path = file_path.replace('/', '\\')
+            self.vars[c['key']].set(file_path)
+
+    def select_color(self, text, key):
+        """
+        选择颜色
+        """
+        r = tkinter.colorchooser.askcolor(title='选择颜色')
+        self.vars['mask_color'].set(str(r[0]))
+
+    def read_config(self, c):
         """
         读取配置
         """
-        json_path = filedialog.askopenfilename(parent=self, filetypes=[('.JSON', '.json')])
+        json_path = self.ask_file([['.json', '.JSON']])
         if json_path:
             json_data = fJson().read(json_path)
             try:
@@ -134,36 +174,12 @@ class fWindow(tkinter.Tk):
                 self.message('参数过多')
                 error(message=f'{fTime().format()}: {self.read.__name__}\n{traceback.format_exc()}')
 
-    def readin(self, text, key):
+    def readin_config(self, c):
         """
         写入配置
         """
         json_path = filedialog.asksaveasfilename(parent=self, filetypes=[('.JSON', '.json')], defaultextension='.json')
         if json_path: fJson().readin(json_path, self.formatting_config(True), indent=4)
-
-    def confirm(self, text, key):
-        """
-        遍历文件处理
-        """
-        self.controls['confirm']['state'] = tkinter.DISABLED
-        try:
-            eval(f'{self.method}(self, self.formatting_config())')
-        except Exception:
-            self.message('参数错误')
-            error(message=f'{fTime().format()}: {self.confirm.__name__}\n{traceback.format_exc()}')
-        self.controls['confirm']['state'] = tkinter.NORMAL
-
-    def select_color(self, text, key):
-        """
-        选择颜色
-        """
-        r = tkinter.colorchooser.askcolor(title='选择颜色')
-        self.vars['mask_color'].set(str(r[0]))
-        self.lift()
-
-    def message(self, text: str = ''):
-        tkinter.messagebox.showerror(title=text, message=text)
-        self.lift()
 
     @property
     def progress_bar_value(self):

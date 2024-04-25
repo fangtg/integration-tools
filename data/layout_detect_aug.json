@@ -51,41 +51,23 @@
 			}
 		},
 		"line_resize": {
-			"resize_h_low_label": {
+			"resize_low_label": {
 				"type": "Label",
-				"text": "高度缩放比例下限"
+				"text": "缩放比例下限"
 			},
-			"resize_h_low_entry": {
+			"resize_low_entry": {
 				"type": "Entry",
 				"width": "5",
-				"key": "resize_h_low"
+				"key": "resize_low"
 			},
-			"resize_h_high_label": {
+			"resize_high_label": {
 				"type": "Label",
-				"text": "高度缩放比例上限"
+				"text": "缩放比例上限"
 			},
-			"resize_h_high_entry": {
+			"resize_high_entry": {
 				"type": "Entry",
 				"width": "5",
-				"key": "resize_h_high"
-			},
-			"resize_w_low_label": {
-				"type": "Label",
-				"text": "宽度缩放比例下限"
-			},
-			"resize_w_low_entry": {
-				"type": "Entry",
-				"width": "5",
-				"key": "resize_w_low"
-			},
-			"resize_w_high_label": {
-				"type": "Label",
-				"text": "宽度缩放比例上限"
-			},
-			"resize_w_high_entry": {
-				"type": "Entry",
-				"width": "5",
-				"key": "resize_w_high"
+				"key": "resize_high"
 			}
 		},
 		"line_flip": {
@@ -205,35 +187,24 @@
 			}
 		},
 		"line_other": {
-			"elastic_transform_label": {
+			"affine_label": {
 				"type": "Label",
-				"text": "弹性变换概率"
+				"text": "仿射变换概率"
 			},
-			"elastic_transform_entry": {
+			"affine_entry": {
 				"type": "Entry",
 				"width": "5",
-				"key": "elastic_transform"
+				"key": "affine"
 			},
-			"grid_distortion_label": {
+			"perspective_label": {
 				"type": "Label",
-				"text": "网格畸变概率"
+				"text": "透视变换概率"
 			},
-			"grid_distortion_entry": {
+			"perspective_entry": {
 				"type": "Entry",
 				"width": "5",
-				"key": "grid_distortion"
+				"key": "perspective"
 			},
-			"optical_distortion_label": {
-				"type": "Label",
-				"text": "光学畸变概率"
-			},
-			"optical_distortion_entry": {
-				"type": "Entry",
-				"width": "5",
-				"key": "optical_distortion"
-			}
-		},
-		"line_other2": {
 			"shift_scale_rotate_label": {
 				"type": "Label",
 				"text": "旋转概率"
@@ -260,13 +231,13 @@
 				"type": "Button",
 				"text": "写入配置",
 				"key": "readin",
-				"command": "self.readin"
+				"command": "self.readin_config"
 			},
 			"read_button": {
 				"type": "Button",
 				"text": "读取配置",
 				"key": "read",
-				"command": "self.read"
+				"command": "self.read_config"
 			},
 			"confirm_button": {
 				"type": "Button",

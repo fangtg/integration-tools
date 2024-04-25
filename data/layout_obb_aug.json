@@ -51,43 +51,32 @@
 			}
 		},
 		"line_resize": {
-			"resize_low_label": {
+			"angle_low_label": {
 				"type": "Label",
-				"text": "缩放比例下限"
+				"text": "旋转角度下限"
 			},
-			"resize_low_entry": {
+			"angle_low_entry": {
 				"type": "Entry",
 				"width": "5",
-				"key": "resize_low"
+				"key": "angle_low"
 			},
-			"resize_high_label": {
+			"angle_high_label": {
 				"type": "Label",
-				"text": "缩放比例上限"
+				"text": "旋转角度上限"
 			},
-			"resize_high_entry": {
+			"angle_high_entry": {
 				"type": "Entry",
 				"width": "5",
-				"key": "resize_high"
-			}
-		},
-		"line_flip": {
-			"flip_x_label": {
-				"type": "Label",
-				"text": "左右翻转概率"
+				"key": "angle_high"
 			},
-			"flip_x_entry": {
+			"angle_range_label": {
+				"type": "Label",
+				"text": "旋转角度跨度"
+			},
+			"angle_range_entry": {
 				"type": "Entry",
 				"width": "5",
-				"key": "flip_x"
-			},
-			"flip_y_label": {
-				"type": "Label",
-				"text": "上下翻转概率"
-			},
-			"flip_y_entry": {
-				"type": "Entry",
-				"width": "5",
-				"key": "flip_y"
+				"key": "angle_range"
 			}
 		},
 		"line_hsv": {
@@ -185,43 +174,19 @@
 				"width": "5",
 				"key": "randombrightnesscontrast"
 			}
-		},
-		"line_other": {
-			"affine_label": {
-				"type": "Label",
-				"text": "仿射变换概率"
+		}
+	},
+	"frame_flip": {
+		"line_flip": {
+			"flip_x_checkbutton": {
+				"type": "Checkbutton",
+				"text": "左右翻转",
+				"key": "flip_x"
 			},
-			"affine_entry": {
-				"type": "Entry",
-				"width": "5",
-				"key": "affine"
-			},
-			"perspective_label": {
-				"type": "Label",
-				"text": "透视变换概率"
-			},
-			"perspective_entry": {
-				"type": "Entry",
-				"width": "5",
-				"key": "perspective"
-			},
-			"shift_scale_rotate_label": {
-				"type": "Label",
-				"text": "旋转概率"
-			},
-			"shift_scale_rotate_entry": {
-				"type": "Entry",
-				"width": "5",
-				"key": "shift_scale_rotate"
-			},
-			"rotate_limit_label": {
-				"type": "Label",
-				"text": "最大旋转角度"
-			},
-			"rotate_limit_entry": {
-				"type": "Entry",
-				"width": "5",
-				"key": "rotate_limit"
+			"flip_y_checkbutton": {
+				"type": "Checkbutton",
+				"text": "上下翻转",
+				"key": "flip_y"
 			}
 		}
 	},
@@ -231,13 +196,13 @@
 				"type": "Button",
 				"text": "写入配置",
 				"key": "readin",
-				"command": "self.readin"
+				"command": "self.readin_config"
 			},
 			"read_button": {
 				"type": "Button",
 				"text": "读取配置",
 				"key": "read",
-				"command": "self.read"
+				"command": "self.read_config"
 			},
 			"confirm_button": {
 				"type": "Button",

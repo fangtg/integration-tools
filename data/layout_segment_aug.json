@@ -51,32 +51,61 @@
 			}
 		},
 		"line_resize": {
-			"angle_low_label": {
+			"resize_h_low_label": {
 				"type": "Label",
-				"text": "旋转角度下限"
+				"text": "高度缩放比例下限"
 			},
-			"angle_low_entry": {
+			"resize_h_low_entry": {
 				"type": "Entry",
 				"width": "5",
-				"key": "angle_low"
+				"key": "resize_h_low"
 			},
-			"angle_high_label": {
+			"resize_h_high_label": {
 				"type": "Label",
-				"text": "旋转角度上限"
+				"text": "高度缩放比例上限"
 			},
-			"angle_high_entry": {
+			"resize_h_high_entry": {
 				"type": "Entry",
 				"width": "5",
-				"key": "angle_high"
+				"key": "resize_h_high"
 			},
-			"angle_range_label": {
+			"resize_w_low_label": {
 				"type": "Label",
-				"text": "旋转角度跨度"
+				"text": "宽度缩放比例下限"
 			},
-			"angle_range_entry": {
+			"resize_w_low_entry": {
 				"type": "Entry",
 				"width": "5",
-				"key": "angle_range"
+				"key": "resize_w_low"
+			},
+			"resize_w_high_label": {
+				"type": "Label",
+				"text": "宽度缩放比例上限"
+			},
+			"resize_w_high_entry": {
+				"type": "Entry",
+				"width": "5",
+				"key": "resize_w_high"
+			}
+		},
+		"line_flip": {
+			"flip_x_label": {
+				"type": "Label",
+				"text": "左右翻转概率"
+			},
+			"flip_x_entry": {
+				"type": "Entry",
+				"width": "5",
+				"key": "flip_x"
+			},
+			"flip_y_label": {
+				"type": "Label",
+				"text": "上下翻转概率"
+			},
+			"flip_y_entry": {
+				"type": "Entry",
+				"width": "5",
+				"key": "flip_y"
 			}
 		},
 		"line_hsv": {
@@ -174,19 +203,54 @@
 				"width": "5",
 				"key": "randombrightnesscontrast"
 			}
-		}
-	},
-	"frame_flip": {
-		"line_flip": {
-			"flip_x_checkbutton": {
-				"type": "Checkbutton",
-				"text": "左右翻转",
-				"key": "flip_x"
+		},
+		"line_other": {
+			"elastic_transform_label": {
+				"type": "Label",
+				"text": "弹性变换概率"
 			},
-			"flip_y_checkbutton": {
-				"type": "Checkbutton",
-				"text": "上下翻转",
-				"key": "flip_y"
+			"elastic_transform_entry": {
+				"type": "Entry",
+				"width": "5",
+				"key": "elastic_transform"
+			},
+			"grid_distortion_label": {
+				"type": "Label",
+				"text": "网格畸变概率"
+			},
+			"grid_distortion_entry": {
+				"type": "Entry",
+				"width": "5",
+				"key": "grid_distortion"
+			},
+			"optical_distortion_label": {
+				"type": "Label",
+				"text": "光学畸变概率"
+			},
+			"optical_distortion_entry": {
+				"type": "Entry",
+				"width": "5",
+				"key": "optical_distortion"
+			}
+		},
+		"line_other2": {
+			"shift_scale_rotate_label": {
+				"type": "Label",
+				"text": "旋转概率"
+			},
+			"shift_scale_rotate_entry": {
+				"type": "Entry",
+				"width": "5",
+				"key": "shift_scale_rotate"
+			},
+			"rotate_limit_label": {
+				"type": "Label",
+				"text": "最大旋转角度"
+			},
+			"rotate_limit_entry": {
+				"type": "Entry",
+				"width": "5",
+				"key": "rotate_limit"
 			}
 		}
 	},
@@ -196,13 +260,13 @@
 				"type": "Button",
 				"text": "写入配置",
 				"key": "readin",
-				"command": "self.readin"
+				"command": "self.readin_config"
 			},
 			"read_button": {
 				"type": "Button",
 				"text": "读取配置",
 				"key": "read",
-				"command": "self.read"
+				"command": "self.read_config"
 			},
 			"confirm_button": {
 				"type": "Button",

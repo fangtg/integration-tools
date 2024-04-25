@@ -7,27 +7,32 @@
   },
   "detect_aug": {
     "text": "目标检测图像增强",
-    "layout_path": "./data/layout_aug_detect.json",
+    "layout_path": "./data/layout_detect_aug.json",
     "method": "detect_aug"
+  },
+  "detect_infer": {
+    "text": "目标检测图像仿真",
+    "layout_path": "./data/layout_detect_infer.json",
+    "method": "detect_infer"
   },
   "segment_aug": {
     "text": "目标分割图像增强",
-    "layout_path": "./data/layout_aug_segment.json",
+    "layout_path": "./data/layout_segment_aug.json",
     "method": "segment_aug"
   },
   "segment_optimize": {
     "text": "目标分割减少密集点",
-    "layout_path": "./data/layout_optimize_seg.json",
+    "layout_path": "./data/layout_segment_optimize_seg.json",
     "method": "segment_optimize"
   },
   "segment_connect_hollow": {
     "text": "目标分割构造中空多边形",
-    "layout_path": "./data/layout_connect_hollow.json",
+    "layout_path": "./data/layout_segment_connect_hollow.json",
     "method": "segment_connect_hollow"
   },
   "obb_aug": {
     "text": "旋转目标检测图像增强",
-    "layout_path": "./data/layout_aug_obb.json",
+    "layout_path": "./data/layout_obb_aug.json",
     "method": "obb_aug"
   },
   "obb_crop": {

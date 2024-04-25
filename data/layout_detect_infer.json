@@ -1,0 +1,91 @@
+{
+	"frame_config": {
+		"line_scan_path": {
+			"scan_path_button": {
+				"type": "Button",
+				"text": "输入目录",
+				"key": "scan_path",
+				"command": "self.select_folder"
+			},
+			"scan_path_entry": {
+				"type": "Entry",
+				"width": "50",
+				"key": "scan_path"
+			}
+		},
+		"line_out_path": {
+			"out_path_button": {
+				"type": "Button",
+				"text": "输出目录",
+				"key": "out_path",
+				"command": "self.select_folder"
+			},
+			"out_path_entry": {
+				"type": "Entry",
+				"width": "50",
+				"key": "out_path"
+			}
+		},
+		"line_model_path": {
+			"model_path_button": {
+				"type": "Button",
+				"text": "模型路径",
+				"key": "model_path",
+				"command": "self.select_file",
+				"filetypes": [[".encode", ".ENCODE"]]
+			},
+			"model_path_entry": {
+				"type": "Entry",
+				"width": "50",
+				"key": "model_path"
+			}
+		},
+		"line_ini_path": {
+			"ini_path_button": {
+				"type": "Button",
+				"text": "配置路径",
+				"key": "ini_path",
+				"command": "self.select_file",
+				"filetypes": [[".ini", ".INI"]]
+			},
+			"ini_path_entry": {
+				"type": "Entry",
+				"width": "50",
+				"key": "ini_path"
+			}
+		},
+		"exe_path": {
+			"exe_path_button": {
+				"type": "Button",
+				"text": "仿真器路径",
+				"key": "exe_path",
+				"command": "self.select_file",
+				"filetypes": [[".exe", ".EXE"]]
+			},
+			"exe_path_entry": {
+				"type": "Entry",
+				"width": "50",
+				"key": "exe_path"
+			}
+		}
+	},
+	"frame_button": {
+		"line1": {
+			"confirm_button": {
+				"type": "Button",
+				"text": "确认",
+				"key": "confirm",
+				"command": "self.confirm"
+			}
+		}
+	},
+	"frame_progress_bar": {
+		"line1": {
+			"progressbar": {
+				"type": "Progressbar",
+				"key": "progress_bar",
+				"width": 500
+			}
+		}
+	}
+}

@@ -6,6 +6,8 @@ import numpy
 import math
 import albumentations as A
 import traceback
+import subprocess
+import threading
 
 from copy import deepcopy
 
@@ -56,7 +58,8 @@ def detect_aug(self, config):
                         A.GaussNoise(p=config['gaussnoise']),
                         A.GaussianBlur(p=config['gaussblur']),
                         A.RandomBrightnessContrast(p=config['randombrightnesscontrast'],
-                                                   brightness_limit=(config['brightness_low'], config['brightness_high']),
+                                                   brightness_limit=(
+                                                   config['brightness_low'], config['brightness_high']),
                                                    contrast_limit=(config['contrast_low'], config['contrast_high'])),
                         A.Affine(p=config['affine'], cval=config['mask_color'], mode=cv2.BORDER_CONSTANT, cval_mask=0),
                         A.Perspective(keep_size=False, p=config['perspective'], pad_mode=cv2.BORDER_CONSTANT,
@@ -75,7 +78,7 @@ def detect_aug(self, config):
                         for obj in list(zip(tr_classes, tr_bboxes))
                     ]
                     img_aug_path = img_path.replace(img_suffix, f'_aug{i}{img_suffix}').replace(config['scan_path'],
-                                                                                                    config['out_path'])
+                                                                                                config['out_path'])
                     fImg().readin(img_aug_path, tr_img)
                     fXmlMark().readin(img_aug_path, (h, w), new_xml_data)
                     break
@@ -85,6 +88,43 @@ def detect_aug(self, config):
                 error(message=f'{fTime().format()}: {detect_aug.__name__}\n{img_path} out of aug times')
 
             self.progress_bar_value += 1
+
+
+def detect_infer(self, config):
+    """
+    目标检测仿真
+    """
+    img_paths = fFile().scan(config['scan_path'], img_suffixes)
+    self.progress_bar_max = len(img_paths)
+    if len(img_paths) > 0:
+        os.makedirs(os.path.dirname(config['out_path']), exist_ok=True)
+        threading.Thread(target=check_infer, args=(self, img_paths)).start()
+        process = subprocess.Popen(['cmd'], stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE,
+                                   text=True, universal_newlines=True)
+        commands = [
+            config['exe_path'][:2],
+            f'cd {os.path.dirname(config["exe_path"])}',
+            f'{os.path.basename(config["exe_path"])} -a {config["model_path"]} {config["ini_path"]} {config["scan_path"]} {config["out_path"]}'
+        ]
+        for command in commands:
+            process.stdin.write(command)
+            process.stdin.write('\n')
+        process.stdin.flush()
+        output, errors = process.communicate()
+        error(path=f'./infer/{fTime().now}.txt', message=f'-----\nerrors: {errors}\n-----\noutput: {output}')
+        if output.count('XML file saved successfully.') == len(img_paths):
+            self.progress_bar_max = len(img_paths)
+            return
+    raise SystemError
+
+
+def check_infer(self, img_paths):
+    for img_path in img_paths:
+        xml_path = f'{os.path.splitext(img_path)[0]}.xml'
+        while not os.path.exists(xml_path):
+            if self.progress_bar_value >= len(img_paths):
+                return
+        self.progress_bar_value += 1
 
 
 def segment_aug(self, config):
@@ -188,8 +228,10 @@ def obb_aug(self, config):
                     for shape in aug_json_data:
                         for point in shape[1]:
                             x, y = point
-                            point[0] = (x - rotate_x) * math.cos(angle_pi) - (y - rotate_y) * math.sin(angle_pi) + rotate_x
-                            point[1] = (x - rotate_x) * math.sin(angle_pi) + (y - rotate_y) * math.cos(angle_pi) + rotate_y
+                            point[0] = (x - rotate_x) * math.cos(angle_pi) - (y - rotate_y) * math.sin(
+                                angle_pi) + rotate_x
+                            point[1] = (x - rotate_x) * math.sin(angle_pi) + (y - rotate_y) * math.cos(
+                                angle_pi) + rotate_y
                             assert 0 <= point[0] <= w and 0 <= point[1] <= h
 
                     aug_img_h, aug_img_w = aug_img.shape[:2]
@@ -212,7 +254,8 @@ def obb_aug(self, config):
                         A.GaussNoise(p=config['gaussnoise']),
                         A.GaussianBlur(p=config['gaussblur']),
                         A.RandomBrightnessContrast(p=config['randombrightnesscontrast'],
-                                                   brightness_limit=(config['brightness_low'], config['brightness_high']),
+                                                   brightness_limit=(
+                                                   config['brightness_low'], config['brightness_high']),
                                                    contrast_limit=(config['contrast_low'], config['contrast_high'])),
                     ], bbox_params=A.BboxParams(format='pascal_voc', min_area=50, min_visibility=0.5,
                                                 label_fields=['class_labels']))
