@@ -59,5 +59,15 @@
     "text": "绘制胶粒外圈",
     "layout_path": "./data/layout_pt_cv_quan.json",
     "method": "pt_cv_quan"
+  },
+  "rename_img": {
+    "text": "重命名图片",
+    "layout_path": "./data/layout_rename_img.json",
+    "method": "rename_img"
+  },
+  "filter_img": {
+    "text": "筛选图片",
+    "layout_path": "./data/layout_filter_img.json",
+    "method": "filter_img"
   }
 }

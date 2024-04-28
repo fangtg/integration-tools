@@ -73,12 +73,18 @@
 				"key": "obb_splice",
 				"command": "self.new_window"
 			}
-		},
-		"line_other": {
-			"obb_label1": {
+		}
+	},
+	"frame_line": {
+		"line_line": {
+			"position": {
 				"type": "Label",
 				"text": ""
-			},
+			}
+}
+	},
+	"frame_other": {
+		"line_1": {
 			"random_move_button": {
 				"type": "Button",
 				"text": "随机移出图片",
@@ -98,6 +104,22 @@
 				"text": "绘制胶粒外圈",
 				"width": 20,
 				"key": "pt_cv_quan",
+				"command": "self.new_window"
+			}
+		},
+		"line_2": {
+			"rename_img_button": {
+				"type": "Button",
+				"text": "重命名图片",
+				"width": 20,
+				"key": "rename_img",
+				"command": "self.new_window"
+			},
+			"filter_img_button": {
+				"type": "Button",
+				"text": "筛选图片",
+				"width": 20,
+				"key": "filter_img",
 				"command": "self.new_window"
 			}
 		}

@@ -13,28 +13,15 @@
 				"key": "scan_path"
 			}
 		},
-		"line_out": {
-			"out_path_button": {
-				"type": "Button",
-				"text": "输出目录",
-				"key": "out_path",
-				"command": "self.select_folder"
-			},
-			"out_path_entry": {
-				"type": "Entry",
-				"width": "50",
-				"key": "out_path"
-			}
-		},
-		"line_random_ratio": {
-			"random_ratio_label": {
+		"line_camera": {
+			"camera_label": {
 				"type": "Label",
-				"text": "随机比例"
+				"text": "相机号"
 			},
-			"random_ratio_entry": {
+			"camera_entry": {
 				"type": "Entry",
 				"width": "5",
-				"key": "random_ratio",
+				"key": "camera",
 				"sticky": "w"
 			}
 		}

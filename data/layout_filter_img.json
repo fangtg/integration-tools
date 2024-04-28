@@ -16,7 +16,7 @@
 		"line_out": {
 			"out_path_button": {
 				"type": "Button",
-				"text": "输出目录",
+				"text": "输入目录",
 				"key": "out_path",
 				"command": "self.select_folder"
 			},
@@ -25,17 +25,42 @@
 				"width": "50",
 				"key": "out_path"
 			}
-		},
-		"line_random_ratio": {
-			"random_ratio_label": {
-				"type": "Label",
-				"text": "随机比例"
+		}
+	},
+	"frame_filter": {
+		"line_filter": {
+			"only_has_radiobutton": {
+				"type": "Radiobutton",
+				"key": "only_has",
+				"value": ["含有", "仅含有"],
+				"direction": "left"
 			},
-			"random_ratio_entry": {
+			"code_label": {
+				"type": "Label",
+				"text": "标签"
+			},
+			"code_entry": {
 				"type": "Entry",
-				"width": "5",
-				"key": "random_ratio",
-				"sticky": "w"
+				"width": "10",
+				"key": "code"
+			},
+			"conf_low_label": {
+				"type": "Label",
+				"text": "置信度下限"
+			},
+			"conf_low_entry": {
+				"type": "Entry",
+				"width": "10",
+				"key": "conf_low"
+			},
+			"conf_high_label": {
+				"type": "Label",
+				"text": "置信度上限"
+			},
+			"conf_high_entry": {
+				"type": "Entry",
+				"width": "10",
+				"key": "conf_high"
 			}
 		}
 	},

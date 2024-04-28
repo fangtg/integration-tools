@@ -59,7 +59,7 @@ def detect_aug(self, config):
                         A.GaussianBlur(p=config['gaussblur']),
                         A.RandomBrightnessContrast(p=config['randombrightnesscontrast'],
                                                    brightness_limit=(
-                                                   config['brightness_low'], config['brightness_high']),
+                                                       config['brightness_low'], config['brightness_high']),
                                                    contrast_limit=(config['contrast_low'], config['contrast_high'])),
                         A.Affine(p=config['affine'], cval=config['mask_color'], mode=cv2.BORDER_CONSTANT, cval_mask=0),
                         A.Perspective(keep_size=False, p=config['perspective'], pad_mode=cv2.BORDER_CONSTANT,
@@ -111,11 +111,11 @@ def detect_infer(self, config):
             process.stdin.write('\n')
         process.stdin.flush()
         output, errors = process.communicate()
-        error(path=f'./infer/{fTime().now}.txt', message=f'-----\nerrors: {errors}\n-----\noutput: {output}')
+        error(path=f'./infer/{fTime().format()}.txt', message=f'-----\nerrors: {errors}\n-----\noutput: {output}')
         if output.count('XML file saved successfully.') == len(img_paths):
             self.progress_bar_max = len(img_paths)
-            return
-    raise SystemError
+        raise ValueError('num of success of output < len(img_paths')
+    raise ValueError('len(img_paths) == 0')
 
 
 def check_infer(self, img_paths):
@@ -255,7 +255,7 @@ def obb_aug(self, config):
                         A.GaussianBlur(p=config['gaussblur']),
                         A.RandomBrightnessContrast(p=config['randombrightnesscontrast'],
                                                    brightness_limit=(
-                                                   config['brightness_low'], config['brightness_high']),
+                                                       config['brightness_low'], config['brightness_high']),
                                                    contrast_limit=(config['contrast_low'], config['contrast_high'])),
                     ], bbox_params=A.BboxParams(format='pascal_voc', min_area=50, min_visibility=0.5,
                                                 label_fields=['class_labels']))
@@ -434,17 +434,68 @@ def random_move(self, config):
     img_paths = fFile().scan(config['scan_path'], img_suffixes)
     numpy.random.shuffle(img_paths)
     img_paths = img_paths[:round(len(img_paths) * config['random_ratio'])]
-    mark_suffix = ['.xml', '.json'][config['mark_type']]
-    mark_tool = get_mark_tool(mark_suffix)
     self.progress_bar_max = len(img_paths)
 
     for img_path in img_paths:
         new_img_path = img_path.replace(config['scan_path'], config['out_path'])
-        mark_path = f'{os.path.splitext(img_path)[0]}{mark_suffix}'
-        _, img_size, mark_data = mark_tool.read(mark_path)
         fFile().copy(img_path, new_img_path, is_move=True)
-        if os.path.exists(mark_path): os.remove(mark_path)
-        mark_tool.readin(new_img_path, img_size, mark_data)
+        for mark_suffix in ['.xml', '.json']:
+            mark_path = f'{os.path.splitext(img_path)[0]}{mark_suffix}'
+            mark_tool = get_mark_tool(mark_suffix)
+            _, img_size, mark_data = mark_tool.read(mark_path)
+            if os.path.exists(mark_path): os.remove(mark_path)
+            mark_tool.readin(new_img_path, img_size, mark_data)
+
+        self.progress_bar_value += 1
+
+
+def rename_img(self, config):
+    """
+    研瑞根据相机号重命名图片
+    """
+    img_paths = fFile().scan(config['scan_path'], img_suffixes)
+    self.progress_bar_max = len(img_paths)
+
+    for img_path in img_paths:
+        img_path_name, img_suffix = os.path.splitext(img_path)
+        new_img_path_name = img_path_name.split('_')
+        if new_img_path_name[-1][0] == 'c':
+            new_img_path_name[-1] = f'c{config["camera"]}'
+        else:
+            new_img_path_name.append(f'c{config["camera"]}')
+        new_img_path_name = '_'.join(new_img_path_name)
+        os.rename(img_path, img_path.replace(img_path_name, new_img_path_name))
+        for mark_suffix in ['.xml', '.json']:
+            mark_path = f'{os.path.splitext(img_path)[0]}{mark_suffix}'
+            if os.path.exists(mark_path): os.rename(mark_path, mark_path.replace(img_path_name, new_img_path_name))
+
+        self.progress_bar_value += 1
+
+
+def filter_img(self, config):
+    """
+    根据code和conf筛选图片, 提供是否仅含选项
+    """
+    img_paths = fFile().scan(config['scan_path'], img_suffixes)
+    self.progress_bar_max = len(img_paths)
+
+    config['code'] = str(config['code'])
+    for img_path in img_paths:
+        for mark_suffix in ['.xml', '.json']:
+            mark_path = f'{os.path.splitext(img_path)[0]}{mark_suffix}'
+            mark_tool = get_mark_tool(mark_suffix)
+            _, img_size, mark_data = mark_tool.read(mark_path)
+            if len(mark_data) > 0:
+                match_count = 0
+                for shape in mark_data:
+                    if config['code'] != '' and config['code'] != shape[0]: continue
+                    if config['conf_low'] != '' and config['conf_low'] > shape[-1]: continue
+                    if config['conf_high'] != '' and config['conf_high'] < shape[-1]: continue
+                    match_count += 1
+                if match_count > 0:
+                    if not config['only_has'] or (config['only_has'] and match_count == len(mark_data)):
+                        if os.path.exists(img_path): fFile().copy(img_path, img_path.replace(config['scan_path'], config['out_path']), is_move=True)
+                        fFile().copy(mark_path, mark_path.replace(config['scan_path'], config['out_path']), is_move=True)
 
         self.progress_bar_value += 1
 
@@ -461,7 +512,7 @@ def get_mark_tool(mark_suffix):
     return mark_tool
 
 
-def error(path=f'./error/{fTime().date()}.txt', message='\n'):
+def error(path=f'./error/{fTime().format()}.txt', message='\n'):
     fTxt().add(path, message)
 
 

@@ -63,6 +63,7 @@ class fWindow(tkinter.Tk):
                     c['direction'] = control_data['direction'] if 'direction' in keys else None  # 单选框选项方向
                     c['filetypes'] = control_data['filetypes'] if 'filetypes' in keys else []  # 文件选择后缀名
                     c['lift'] = control_data['lift'] if 'lift' in keys else None  # 点击任务结束后是否置顶
+                    c['sticky'] = control_data['sticky'] if 'sticky' in keys else ''  # 对齐
 
                     if c['type'] == 'Label':
                         control = tkinter.Label(frame, text=c['text'], width=c['width'])
@@ -95,7 +96,7 @@ class fWindow(tkinter.Tk):
                     else:
                         control = None
                     if c['key']: self.controls[c['key']] = control
-                    control.grid(row=row_index, column=column_index)
+                    control.grid(row=row_index, column=column_index, sticky=c['sticky'])
                     if c['type'] == 'Progressbar': control.grid_remove()
                     column_index += 1
                 row_index += 1
@@ -285,7 +286,7 @@ def init_window_config(key):
     return title, size, ico
 
 
-def error(path=f'./error/{fTime().date()}.txt', message='\n'):
+def error(path=f'./error/{fTime().format()}.txt', message='\n'):
     fTxt().add(path, message)
 
 

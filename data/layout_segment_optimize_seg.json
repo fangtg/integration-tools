@@ -25,9 +25,7 @@
 				"width": "50",
 				"key": "out_path"
 			}
-		}
-	},
-	"frame_configuration": {
+		},
 		"line_point_distance": {
 			"point_distance_label": {
 				"type": "Label",
@@ -36,7 +34,8 @@
 			"point_distance_entry": {
 				"type": "Entry",
 				"width": "5",
-				"key": "point_distance"
+				"key": "point_distance",
+				"sticky": "w"
 			}
 		}
 	},

@@ -25,18 +25,17 @@
 				"width": "50",
 				"key": "out_path"
 			}
-		}
-	},
-	"frame2": {
-		"line_scan": {
+		},
+		"line_prefix": {
 			"prefix_label": {
 				"type": "Label",
 				"text": "拼接前缀"
 			},
 			"prefix_entry": {
 				"type": "Entry",
-				"width": "10",
-				"key": "prefix"
+				"width": "20",
+				"key": "prefix",
+				"sticky": "w"
 			}
 		}
 	},
