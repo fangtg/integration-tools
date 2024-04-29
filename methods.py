@@ -114,7 +114,8 @@ def detect_infer(self, config):
         error(path=f'./infer/{fTime().format()}.txt', message=f'-----\nerrors: {errors}\n-----\noutput: {output}')
         if output.count('XML file saved successfully.') == len(img_paths):
             self.progress_bar_max = len(img_paths)
-        raise ValueError('num of success of output < len(img_paths')
+            return
+        raise ValueError(f'num of success of output: {output.count("XML file saved successfully.")} < len(img_paths): {len(img_paths)}')
     raise ValueError('len(img_paths) == 0')
 
 
