@@ -1,0 +1,344 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DeviceConfigModel xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Key>a257ad0a-a5df-42d0-bf23-232d11b1dd1d</Key>
+  <Order>0</Order>
+  <SortOrder>0</SortOrder>
+  <IsSelected>false</IsSelected>
+  <ChangedEnabled>false</ChangedEnabled>
+  <Errors />
+  <Error />
+  <DeviceInfoList>
+    <DeviceInfoModel>
+      <Key>d8019fde-486b-4d50-a446-df69c0524646</Key>
+      <Order>0</Order>
+      <SortOrder>0</SortOrder>
+      <IsSelected>false</IsSelected>
+      <ChangedEnabled>false</ChangedEnabled>
+      <Errors />
+      <Error />
+      <Name>设备编号</Name>
+      <Param>电容315-19</Param>
+    </DeviceInfoModel>
+    <DeviceInfoModel>
+      <Key>ce851b49-753d-477b-8522-19b8c2feb67a</Key>
+      <Order>0</Order>
+      <SortOrder>0</SortOrder>
+      <IsSelected>false</IsSelected>
+      <ChangedEnabled>false</ChangedEnabled>
+      <Errors />
+      <Error />
+      <Name>MES流程</Name>
+      <Param>关</Param>
+    </DeviceInfoModel>
+    <DeviceInfoModel>
+      <Key>db896ea1-a090-4202-8d01-44055063bdfb</Key>
+      <Order>0</Order>
+      <SortOrder>0</SortOrder>
+      <IsSelected>false</IsSelected>
+      <ChangedEnabled>false</ChangedEnabled>
+      <Errors />
+      <Error />
+      <Name>授权起始日期</Name>
+      <Param>2024/5/6 8:38:50</Param>
+    </DeviceInfoModel>
+    <DeviceInfoModel>
+      <Key>607fb268-ccfd-42e7-8183-73acf6cb9400</Key>
+      <Order>0</Order>
+      <SortOrder>0</SortOrder>
+      <IsSelected>false</IsSelected>
+      <ChangedEnabled>false</ChangedEnabled>
+      <Errors />
+      <Error />
+      <Name>授权终止日期</Name>
+      <Param>2027/1/1 10:00:00</Param>
+    </DeviceInfoModel>
+    <DeviceInfoModel>
+      <Key>7fbb98ad-f46c-4e2f-a5b3-bc4fe2438462</Key>
+      <Order>0</Order>
+      <SortOrder>0</SortOrder>
+      <IsSelected>false</IsSelected>
+      <ChangedEnabled>false</ChangedEnabled>
+      <Errors />
+      <Error />
+      <Name>存图路径</Name>
+      <Param>D:\release\</Param>
+    </DeviceInfoModel>
+    <DeviceInfoModel>
+      <Key>f3463152-4212-4ed2-b1b7-2d1c8b534380</Key>
+      <Order>0</Order>
+      <SortOrder>0</SortOrder>
+      <IsSelected>false</IsSelected>
+      <ChangedEnabled>false</ChangedEnabled>
+      <Errors />
+      <Error />
+      <Name>相机编号</Name>
+      <Param>0</Param>
+    </DeviceInfoModel>
+    <DeviceInfoModel>
+      <Key>799c291d-af4d-4011-9af7-dfb8aa8bf0b7</Key>
+      <Order>0</Order>
+      <SortOrder>0</SortOrder>
+      <IsSelected>false</IsSelected>
+      <ChangedEnabled>false</ChangedEnabled>
+      <Errors />
+      <Error />
+      <Name>PLC编号</Name>
+      <Param>0</Param>
+    </DeviceInfoModel>
+    <DeviceInfoModel>
+      <Key>5316c81e-55c4-4ab8-bd1b-ee33fcd1b01d</Key>
+      <Order>0</Order>
+      <SortOrder>0</SortOrder>
+      <IsSelected>false</IsSelected>
+      <ChangedEnabled>false</ChangedEnabled>
+      <Errors />
+      <Error />
+      <Name>保存ImageNg</Name>
+      <Param>关</Param>
+    </DeviceInfoModel>
+    <DeviceInfoModel>
+      <Key>2041b8ee-6bca-411c-8a38-feb77f79cc97</Key>
+      <Order>0</Order>
+      <SortOrder>0</SortOrder>
+      <IsSelected>false</IsSelected>
+      <ChangedEnabled>false</ChangedEnabled>
+      <Errors />
+      <Error />
+      <Name>保存ImageOk</Name>
+      <Param>关</Param>
+    </DeviceInfoModel>
+    <DeviceInfoModel>
+      <Key>1c3df460-ec0d-40da-9f16-e87fef330938</Key>
+      <Order>0</Order>
+      <SortOrder>0</SortOrder>
+      <IsSelected>false</IsSelected>
+      <ChangedEnabled>false</ChangedEnabled>
+      <Errors />
+      <Error />
+      <Name>裸品检测软件</Name>
+      <Param>关</Param>
+    </DeviceInfoModel>
+    <DeviceInfoModel>
+      <Key>23f3a939-db30-4607-9324-7132cb549cbe</Key>
+      <Order>0</Order>
+      <SortOrder>0</SortOrder>
+      <IsSelected>false</IsSelected>
+      <ChangedEnabled>false</ChangedEnabled>
+      <Errors />
+      <Error />
+      <Name>分割置信度</Name>
+      <Param>0.3</Param>
+    </DeviceInfoModel>
+    <DeviceInfoModel>
+      <Key>d64a6325-f229-4711-9805-3028c7756116</Key>
+      <Order>0</Order>
+      <SortOrder>0</SortOrder>
+      <IsSelected>false</IsSelected>
+      <ChangedEnabled>false</ChangedEnabled>
+      <Errors />
+      <Error />
+      <Name>sy1检测</Name>
+      <Param>关</Param>
+    </DeviceInfoModel>
+    <DeviceInfoModel>
+      <Key>933858d8-72a1-47be-a54c-e6fdc8b3d709</Key>
+      <Order>0</Order>
+      <SortOrder>0</SortOrder>
+      <IsSelected>false</IsSelected>
+      <ChangedEnabled>false</ChangedEnabled>
+      <Errors />
+      <Error />
+      <Name>策略号</Name>
+      <Param>2</Param>
+    </DeviceInfoModel>
+  </DeviceInfoList>
+  <AllConfigList>
+    <AllConfigModel>
+      <Key>3bfb4038-1e13-4e26-86c3-a4da5d08f551</Key>
+      <Order>0</Order>
+      <SortOrder>0</SortOrder>
+      <IsSelected>false</IsSelected>
+      <ChangedEnabled>false</ChangedEnabled>
+      <Errors />
+      <Error />
+      <NO>KPCamera006</NO>
+      <Type>KAssemblyCamera</Type>
+      <Name>组合相机</Name>
+      <Remark>将多个相机数据组合在一起，不限相机类型</Remark>
+      <Version />
+    </AllConfigModel>
+    <AllConfigModel>
+      <Key>f2f715da-0231-4c30-a966-188b8e14aa01</Key>
+      <Order>0</Order>
+      <SortOrder>0</SortOrder>
+      <IsSelected>false</IsSelected>
+      <ChangedEnabled>false</ChangedEnabled>
+      <Errors />
+      <Error />
+      <NO>KPCamera004</NO>
+      <Type>KFileCamera</Type>
+      <Name>文件相机</Name>
+      <Remark>显示文件夹中所有图像数据</Remark>
+      <Version />
+    </AllConfigModel>
+    <AllConfigModel>
+      <Key>219d56df-2c1f-42ed-8c17-319175aef393</Key>
+      <Order>0</Order>
+      <SortOrder>0</SortOrder>
+      <IsSelected>false</IsSelected>
+      <ChangedEnabled>false</ChangedEnabled>
+      <Errors />
+      <Error />
+      <NO>KPCamera007</NO>
+      <Type>KHKVision</Type>
+      <Name>P4相机</Name>
+      <Remark>将多个相机数据组合在一起，不限相机类型</Remark>
+      <Version />
+    </AllConfigModel>
+    <AllConfigModel>
+      <Key>08b7aad0-c487-402f-80d1-b7c55c8a4f9c</Key>
+      <Order>0</Order>
+      <SortOrder>0</SortOrder>
+      <IsSelected>false</IsSelected>
+      <ChangedEnabled>false</ChangedEnabled>
+      <Errors />
+      <Error />
+      <NO>KPCamera001</NO>
+      <Type>KKeyeCamera</Type>
+      <Name>P2相机</Name>
+      <Remark>将多个相机数据组合在一起，不限相机类型</Remark>
+      <Version />
+    </AllConfigModel>
+    <AllConfigModel>
+      <Key>08c2adf0-ce71-4b04-89d4-ea1c9e8b5b0a</Key>
+      <Order>0</Order>
+      <SortOrder>0</SortOrder>
+      <IsSelected>false</IsSelected>
+      <ChangedEnabled>false</ChangedEnabled>
+      <Errors />
+      <Error />
+      <NO>KPCamera003</NO>
+      <Type>KTestRgbCamera</Type>
+      <Name>测试相机</Name>
+      <Remark>将多个相机数据组合在一起，不限相机类型</Remark>
+      <Version />
+    </AllConfigModel>
+    <AllConfigModel>
+      <Key>87b23bd0-df6d-431d-92e6-5ac01720ddb0</Key>
+      <Order>0</Order>
+      <SortOrder>0</SortOrder>
+      <IsSelected>false</IsSelected>
+      <ChangedEnabled>false</ChangedEnabled>
+      <Errors />
+      <Error />
+      <NO>KPControlModule007</NO>
+      <Type>KCapacitanceMotorCtrl</Type>
+      <Name>电机控制</Name>
+      <Remark>将多个相机数据组合在一起，不限相机类型</Remark>
+      <Version />
+    </AllConfigModel>
+    <AllConfigModel>
+      <Key>0049dd5e-654f-4302-9f72-27530e49273e</Key>
+      <Order>0</Order>
+      <SortOrder>0</SortOrder>
+      <IsSelected>false</IsSelected>
+      <ChangedEnabled>false</ChangedEnabled>
+      <Errors />
+      <Error />
+      <NO>KPControlModule008</NO>
+      <Type>KCapacitanceMotorModbusCtrl</Type>
+      <Name>Modbus电机</Name>
+      <Remark>将多个相机数据组合在一起，不限相机类型</Remark>
+      <Version />
+    </AllConfigModel>
+    <AllConfigModel>
+      <Key>4b6cd949-c359-4ec1-bdc0-36a75f97185a</Key>
+      <Order>0</Order>
+      <SortOrder>0</SortOrder>
+      <IsSelected>false</IsSelected>
+      <ChangedEnabled>false</ChangedEnabled>
+      <Errors />
+      <Error />
+      <NO>KPControlBoard</NO>
+      <Type>KTestRgbCamera</Type>
+      <Name>主控板(V1.0)</Name>
+      <Remark>将多个相机数据组合在一起，不限相机类型</Remark>
+      <Version />
+    </AllConfigModel>
+  </AllConfigList>
+  <GlobalControlList>
+    <GlobalControlModel>
+      <Key>11188ece-dd26-4a95-9d2d-fb67e97fef52</Key>
+      <Order>0</Order>
+      <SortOrder>0</SortOrder>
+      <IsSelected>false</IsSelected>
+      <ChangedEnabled>false</ChangedEnabled>
+      <Errors />
+      <Error />
+      <Name>保存配置弹窗</Name>
+      <Describe>保存配置文件按钮弹窗提示开关</Describe>
+      <IsEnabled>false</IsEnabled>
+    </GlobalControlModel>
+    <GlobalControlModel>
+      <Key>2d81d26c-3ded-47f8-8d22-0cea02dbbd54</Key>
+      <Order>0</Order>
+      <SortOrder>0</SortOrder>
+      <IsSelected>false</IsSelected>
+      <ChangedEnabled>false</ChangedEnabled>
+      <Errors />
+      <Error />
+      <Name>退出系统弹窗</Name>
+      <Describe>退出系统弹窗提示是否保存配置文件开关</Describe>
+      <IsEnabled>false</IsEnabled>
+    </GlobalControlModel>
+    <GlobalControlModel>
+      <Key>7cdac291-79a0-414b-8eeb-0be432aaf13c</Key>
+      <Order>0</Order>
+      <SortOrder>0</SortOrder>
+      <IsSelected>false</IsSelected>
+      <ChangedEnabled>false</ChangedEnabled>
+      <Errors />
+      <Error />
+      <Name>默认保存路径</Name>
+      <Describe>默认配置文件保存路径为根目录</Describe>
+      <IsEnabled>false</IsEnabled>
+    </GlobalControlModel>
+    <GlobalControlModel>
+      <Key>39873b94-bfdb-4ec5-9e9d-4262999196c3</Key>
+      <Order>0</Order>
+      <SortOrder>0</SortOrder>
+      <IsSelected>false</IsSelected>
+      <ChangedEnabled>false</ChangedEnabled>
+      <Errors />
+      <Error />
+      <Name>帧号显示</Name>
+      <Describe>图像帧号显示控制开关</Describe>
+      <IsEnabled>false</IsEnabled>
+    </GlobalControlModel>
+    <GlobalControlModel>
+      <Key>b5f19eff-5791-4230-8a92-332ad16bad28</Key>
+      <Order>0</Order>
+      <SortOrder>0</SortOrder>
+      <IsSelected>false</IsSelected>
+      <ChangedEnabled>false</ChangedEnabled>
+      <Errors />
+      <Error />
+      <Name>水平辅助线显示</Name>
+      <Describe>图像中心点水平辅助线显示</Describe>
+      <IsEnabled>false</IsEnabled>
+    </GlobalControlModel>
+    <GlobalControlModel>
+      <Key>a2e4a2d0-8833-4ede-953a-d0ea47874060</Key>
+      <Order>0</Order>
+      <SortOrder>0</SortOrder>
+      <IsSelected>false</IsSelected>
+      <ChangedEnabled>false</ChangedEnabled>
+      <Errors />
+      <Error />
+      <Name>垂直辅助线显示</Name>
+      <Describe>图像中心点垂直辅助线显示</Describe>
+      <IsEnabled>false</IsEnabled>
+    </GlobalControlModel>
+  </GlobalControlList>
+  <ErrorTypeList />
+</DeviceConfigModel>

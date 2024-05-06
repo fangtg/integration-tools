@@ -12,7 +12,7 @@ import threading
 from copy import deepcopy
 
 sys.path.append('../ftools')
-from ffile import fFile, fJson, fTxt
+from ffile import fFile, fJson, fTxt, fXml
 from fmark import fXmlMark, fJsonMark
 from fimg import fImg
 from fmath import fMath
@@ -115,7 +115,8 @@ def detect_infer(self, config):
         if output.count('XML file saved successfully.') == len(img_paths):
             self.progress_bar_max = len(img_paths)
             return
-        raise ValueError(f'num of success of output: {output.count("XML file saved successfully.")} < len(img_paths): {len(img_paths)}')
+        raise ValueError(
+            f'num of success of output: {output.count("XML file saved successfully.")} < len(img_paths): {len(img_paths)}')
     raise ValueError('len(img_paths) == 0')
 
 
@@ -495,10 +496,71 @@ def filter_img(self, config):
                     match_count += 1
                 if match_count > 0:
                     if not config['only_has'] or (config['only_has'] and match_count == len(mark_data)):
-                        if os.path.exists(img_path): fFile().copy(img_path, img_path.replace(config['scan_path'], config['out_path']), is_move=True)
-                        fFile().copy(mark_path, mark_path.replace(config['scan_path'], config['out_path']), is_move=True)
+                        if os.path.exists(img_path): fFile().copy(img_path, img_path.replace(config['scan_path'],
+                                                                                             config['out_path']),
+                                                                  is_move=True)
+                        fFile().copy(mark_path, mark_path.replace(config['scan_path'], config['out_path']),
+                                     is_move=True)
 
         self.progress_bar_value += 1
+
+
+def clean_conf(self, config):
+    """
+    清空置信度
+    """
+    img_paths = fFile().scan(config['scan_path'], img_suffixes)
+    self.progress_bar_max = len(img_paths)
+    for img_path in img_paths:
+        for mark_suffix in ['.xml', '.json']:
+            mark_path = f'{os.path.splitext(img_path)[0]}{mark_suffix}'
+            mark_tool = get_mark_tool(mark_suffix)
+            _, img_size, mark_data = mark_tool.read(mark_path)
+            for shape in mark_data:
+                shape[-1] = -1
+            mark_tool.readin(img_path, img_size, mark_data)
+        self.progress_bar_value += 1
+
+
+def batch_modify_camera(self, config):
+    """
+    批量修改相机参数
+    """
+    modify_items = {
+        "曝光时间": "ExposureTime",
+        "红色增益": "RedGain",
+        "绿色增益": "GreenGain",
+        "蓝色增益": "BlueGain",
+        "增益": "Gain",
+        "图像宽度": "ImageWidth",
+        "图像高度": "ImageHeight",
+        "宽度偏移": "WidthOffset",
+        "高度偏移": "HeightOffset",
+    }
+    assert config['modify_item'] in modify_items.keys(), f'error modify_item: {config["modify_item"]}'
+    modify_item = modify_items[config['modify_item']]
+    cameras = [config[f'camera{i}'] for i in range(1, 17)]
+    product_config_path = f'{config["configs_path"]}/ProductConfig.xml'
+    product_config = fXml().read(product_config_path)
+    product_config = product_config['ArrayOfProductModel']['ProductModel']
+    templates = [[template['Order'], template['Name']] for template in product_config]
+    if len(config['config']) > 0: templates = list(filter(lambda template: template[1] == config['config'], templates))
+    assert len(templates) > 0, 'len(templates) == 0'
+    for template in templates:
+        order, name = template
+        camera_config_path = f'{config["configs_path"]}/{order}/CameraConfig.xml'
+        camera_config = fXml().read(camera_config_path)
+        for camera in camera_config['ArrayOfCameraConfigModel']['CameraConfigModel']:
+            if cameras[int(camera['Order'])-1] is False: continue
+            if config['modify_type']:
+                if int(camera[modify_item]) == camera[modify_item]:
+                    camera[modify_item] = int(camera[modify_item])
+                else:
+                    camera[modify_item] = float(camera[modify_item])
+                camera[modify_item] += config['modify_data']
+            else:
+                camera[modify_item] = config['modify_data']
+        fXml().readin(camera_config_path, camera_config)
 
 
 def get_mark_tool(mark_suffix):

@@ -69,5 +69,15 @@
     "text": "筛选图片",
     "layout_path": "./data/layout_filter_img.json",
     "method": "filter_img"
+  },
+  "clean_conf": {
+    "text": "清空置信度",
+    "layout_path": "./data/layout_clean_conf.json",
+    "method": "clean_conf"
+  },
+  "batch_modify_camera": {
+    "text": "批量修改相机参数",
+    "layout_path": "./data/layout_batch_modify_camera.json",
+    "method": "batch_modify_camera"
   }
 }

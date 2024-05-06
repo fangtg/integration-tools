@@ -121,6 +121,22 @@
 				"width": 20,
 				"key": "filter_img",
 				"command": "self.new_window"
+			},
+			"clean_conf_button": {
+				"type": "Button",
+				"text": "清空置信度",
+				"width": 20,
+				"key": "clean_conf",
+				"command": "self.new_window"
+			}
+		},
+		"line_3": {
+			"batch_modify_camera_button": {
+				"type": "Button",
+				"text": "批量修改相机参数",
+				"width": 20,
+				"key": "batch_modify_camera",
+				"command": "self.new_window"
 			}
 		}
 	}

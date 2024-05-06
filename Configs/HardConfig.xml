@@ -1,0 +1,334 @@
+<?xml version="1.0" encoding="utf-8"?>
+<HardConfigModel xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Key>80d67603-780a-427e-bf78-ee05f86cdcc1</Key>
+  <Order>0</Order>
+  <SortOrder>0</SortOrder>
+  <IsSelected>false</IsSelected>
+  <ChangedEnabled>false</ChangedEnabled>
+  <Errors />
+  <Error />
+  <HardList>
+    <HardInfoModel>
+      <Key>93baeeaa-650e-4aa8-b149-e3d05f68ead2</Key>
+      <Order>0</Order>
+      <SortOrder>0</SortOrder>
+      <IsSelected>false</IsSelected>
+      <ChangedEnabled>false</ChangedEnabled>
+      <Errors />
+      <Error />
+      <Name>电机控制</Name>
+      <Type>电机</Type>
+      <Describe>电机运行控制模块</Describe>
+      <Status>PlaceHolder</Status>
+    </HardInfoModel>
+  </HardList>
+  <MainControlConfig>
+    <Key>5162b248-dc83-4939-b74a-f6e3dc0fbd4a</Key>
+    <Order>0</Order>
+    <SortOrder>0</SortOrder>
+    <IsSelected>false</IsSelected>
+    <ChangedEnabled>false</ChangedEnabled>
+    <Errors />
+    <Error />
+    <HardModuleList>
+      <HardModuleModel>
+        <Key>fcf8c538-e42e-4ff4-a2d8-b77176d12caf</Key>
+        <Order>0</Order>
+        <SortOrder>0</SortOrder>
+        <IsSelected>false</IsSelected>
+        <ChangedEnabled>false</ChangedEnabled>
+        <Errors />
+        <Error />
+        <Name>PLC</Name>
+        <ParamList>
+          <HardParamValueModel>
+            <Key>5f05d5c5-912a-41dc-8999-e1035cc27265</Key>
+            <Order>0</Order>
+            <SortOrder>0</SortOrder>
+            <IsSelected>false</IsSelected>
+            <ChangedEnabled>false</ChangedEnabled>
+            <Errors />
+            <Error />
+            <Name>运行速度</Name>
+            <ParamValueFloat>70000</ParamValueFloat>
+            <ParamValueInt>70000</ParamValueInt>
+            <ParamValueBool>false</ParamValueBool>
+          </HardParamValueModel>
+          <HardParamValueModel>
+            <Key>99bd29a0-aae8-4cba-826e-3872f407ff88</Key>
+            <Order>0</Order>
+            <SortOrder>0</SortOrder>
+            <IsSelected>false</IsSelected>
+            <ChangedEnabled>false</ChangedEnabled>
+            <Errors />
+            <Error />
+            <Name>点动速度</Name>
+            <ParamValueFloat>30000</ParamValueFloat>
+            <ParamValueInt>1000</ParamValueInt>
+            <ParamValueBool>false</ParamValueBool>
+          </HardParamValueModel>
+          <HardParamValueModel>
+            <Key>be6ad7dc-59cf-425c-b41e-0bc13928312a</Key>
+            <Order>0</Order>
+            <SortOrder>0</SortOrder>
+            <IsSelected>false</IsSelected>
+            <ChangedEnabled>false</ChangedEnabled>
+            <Errors />
+            <Error />
+            <Name>剔除速度</Name>
+            <ParamValueFloat>30000</ParamValueFloat>
+            <ParamValueInt>120000</ParamValueInt>
+            <ParamValueBool>false</ParamValueBool>
+          </HardParamValueModel>
+          <HardParamValueModel>
+            <Key>0dc66faa-f84f-4463-91a4-50f21aeb38dc</Key>
+            <Order>0</Order>
+            <SortOrder>0</SortOrder>
+            <IsSelected>false</IsSelected>
+            <ChangedEnabled>false</ChangedEnabled>
+            <Errors />
+            <Error />
+            <Name>产品间隔</Name>
+            <ParamValueFloat>0</ParamValueFloat>
+            <ParamValueInt>20</ParamValueInt>
+            <ParamValueBool>false</ParamValueBool>
+          </HardParamValueModel>
+          <HardParamValueModel>
+            <Key>b722cf35-99b9-498f-bb46-a5f5f74c1e3f</Key>
+            <Order>0</Order>
+            <SortOrder>0</SortOrder>
+            <IsSelected>false</IsSelected>
+            <ChangedEnabled>false</ChangedEnabled>
+            <Errors />
+            <Error />
+            <Name>校准触发频率</Name>
+            <ParamValueFloat>20</ParamValueFloat>
+            <ParamValueInt>20</ParamValueInt>
+            <ParamValueBool>false</ParamValueBool>
+          </HardParamValueModel>
+          <HardParamValueModel>
+            <Key>df1da2f6-162a-4991-b3e6-f0377bf41a0b</Key>
+            <Order>0</Order>
+            <SortOrder>0</SortOrder>
+            <IsSelected>false</IsSelected>
+            <ChangedEnabled>false</ChangedEnabled>
+            <Errors />
+            <Error />
+            <Name>1#拍照位</Name>
+            <ParamValueFloat>10000</ParamValueFloat>
+            <ParamValueInt>8800</ParamValueInt>
+            <ParamValueBool>false</ParamValueBool>
+          </HardParamValueModel>
+          <HardParamValueModel>
+            <Key>2239d3c3-33be-4205-b852-a77ab6e2150a</Key>
+            <Order>0</Order>
+            <SortOrder>0</SortOrder>
+            <IsSelected>false</IsSelected>
+            <ChangedEnabled>false</ChangedEnabled>
+            <Errors />
+            <Error />
+            <Name>2#拍照位</Name>
+            <ParamValueFloat>0</ParamValueFloat>
+            <ParamValueInt>16851</ParamValueInt>
+            <ParamValueBool>false</ParamValueBool>
+          </HardParamValueModel>
+          <HardParamValueModel>
+            <Key>705e95ef-4bdb-454d-977b-ef70959aefdb</Key>
+            <Order>0</Order>
+            <SortOrder>0</SortOrder>
+            <IsSelected>false</IsSelected>
+            <ChangedEnabled>false</ChangedEnabled>
+            <Errors />
+            <Error />
+            <Name>3#拍照位</Name>
+            <ParamValueFloat>10000</ParamValueFloat>
+            <ParamValueInt>24575</ParamValueInt>
+            <ParamValueBool>false</ParamValueBool>
+          </HardParamValueModel>
+          <HardParamValueModel>
+            <Key>1e512eb2-6377-4302-956e-f99e48eb3b80</Key>
+            <Order>0</Order>
+            <SortOrder>0</SortOrder>
+            <IsSelected>false</IsSelected>
+            <ChangedEnabled>false</ChangedEnabled>
+            <Errors />
+            <Error />
+            <Name>4#拍照位</Name>
+            <ParamValueFloat>10000</ParamValueFloat>
+            <ParamValueInt>66076</ParamValueInt>
+            <ParamValueBool>false</ParamValueBool>
+          </HardParamValueModel>
+          <HardParamValueModel>
+            <Key>f2beb4e2-227b-4ac4-b043-a865993c3929</Key>
+            <Order>0</Order>
+            <SortOrder>0</SortOrder>
+            <IsSelected>false</IsSelected>
+            <ChangedEnabled>false</ChangedEnabled>
+            <Errors />
+            <Error />
+            <Name>5#拍照位</Name>
+            <ParamValueFloat>10000</ParamValueFloat>
+            <ParamValueInt>103031</ParamValueInt>
+            <ParamValueBool>false</ParamValueBool>
+          </HardParamValueModel>
+          <HardParamValueModel>
+            <Key>4d2679fb-1d80-444b-a8e4-4356069dc243</Key>
+            <Order>0</Order>
+            <SortOrder>0</SortOrder>
+            <IsSelected>false</IsSelected>
+            <ChangedEnabled>false</ChangedEnabled>
+            <Errors />
+            <Error />
+            <Name>6#拍照位</Name>
+            <ParamValueFloat>10000</ParamValueFloat>
+            <ParamValueInt>140039</ParamValueInt>
+            <ParamValueBool>false</ParamValueBool>
+          </HardParamValueModel>
+          <HardParamValueModel>
+            <Key>b99fc0d5-5b49-466b-bd9c-96686e268edb</Key>
+            <Order>0</Order>
+            <SortOrder>0</SortOrder>
+            <IsSelected>false</IsSelected>
+            <ChangedEnabled>false</ChangedEnabled>
+            <Errors />
+            <Error />
+            <Name>7#拍照位</Name>
+            <ParamValueFloat>10000</ParamValueFloat>
+            <ParamValueInt>146780</ParamValueInt>
+            <ParamValueBool>false</ParamValueBool>
+          </HardParamValueModel>
+          <HardParamValueModel>
+            <Key>765e0eaa-3e84-460b-ae42-1bbdbb071a94</Key>
+            <Order>0</Order>
+            <SortOrder>0</SortOrder>
+            <IsSelected>false</IsSelected>
+            <ChangedEnabled>false</ChangedEnabled>
+            <Errors />
+            <Error />
+            <Name>8#拍照位</Name>
+            <ParamValueFloat>10000</ParamValueFloat>
+            <ParamValueInt>10000</ParamValueInt>
+            <ParamValueBool>false</ParamValueBool>
+          </HardParamValueModel>
+          <HardParamValueModel>
+            <Key>c6498c9c-f2dd-454f-9ef6-7efd84fce006</Key>
+            <Order>0</Order>
+            <SortOrder>0</SortOrder>
+            <IsSelected>false</IsSelected>
+            <ChangedEnabled>false</ChangedEnabled>
+            <Errors />
+            <Error />
+            <Name>NG1分选位</Name>
+            <ParamValueFloat>10000</ParamValueFloat>
+            <ParamValueInt>171000</ParamValueInt>
+            <ParamValueBool>false</ParamValueBool>
+          </HardParamValueModel>
+          <HardParamValueModel>
+            <Key>ded73d95-18ac-44f0-8d1b-22508e6edfae</Key>
+            <Order>0</Order>
+            <SortOrder>0</SortOrder>
+            <IsSelected>false</IsSelected>
+            <ChangedEnabled>false</ChangedEnabled>
+            <Errors />
+            <Error />
+            <Name>NG2分选位</Name>
+            <ParamValueFloat>10000</ParamValueFloat>
+            <ParamValueInt>181500</ParamValueInt>
+            <ParamValueBool>false</ParamValueBool>
+          </HardParamValueModel>
+          <HardParamValueModel>
+            <Key>1a139ca1-3a8b-48c1-a629-f70060e2e704</Key>
+            <Order>0</Order>
+            <SortOrder>0</SortOrder>
+            <IsSelected>false</IsSelected>
+            <ChangedEnabled>false</ChangedEnabled>
+            <Errors />
+            <Error />
+            <Name>剔除1上位置</Name>
+            <ParamValueFloat>0</ParamValueFloat>
+            <ParamValueInt>-1787</ParamValueInt>
+            <ParamValueBool>false</ParamValueBool>
+          </HardParamValueModel>
+          <HardParamValueModel>
+            <Key>cbc4c91d-ce0c-430a-a1b8-f7b78707aa10</Key>
+            <Order>0</Order>
+            <SortOrder>0</SortOrder>
+            <IsSelected>false</IsSelected>
+            <ChangedEnabled>false</ChangedEnabled>
+            <Errors />
+            <Error />
+            <Name>剔除1下位置</Name>
+            <ParamValueFloat>0</ParamValueFloat>
+            <ParamValueInt>0</ParamValueInt>
+            <ParamValueBool>false</ParamValueBool>
+          </HardParamValueModel>
+          <HardParamValueModel>
+            <Key>b863ceab-66cc-4e31-a7e9-453be791c058</Key>
+            <Order>0</Order>
+            <SortOrder>0</SortOrder>
+            <IsSelected>false</IsSelected>
+            <ChangedEnabled>false</ChangedEnabled>
+            <Errors />
+            <Error />
+            <Name>剔除2上位置</Name>
+            <ParamValueFloat>0</ParamValueFloat>
+            <ParamValueInt>-3389</ParamValueInt>
+            <ParamValueBool>false</ParamValueBool>
+          </HardParamValueModel>
+          <HardParamValueModel>
+            <Key>d497c97d-c297-4f84-9bae-c493db28b1d8</Key>
+            <Order>0</Order>
+            <SortOrder>0</SortOrder>
+            <IsSelected>false</IsSelected>
+            <ChangedEnabled>false</ChangedEnabled>
+            <Errors />
+            <Error />
+            <Name>剔除2下位置</Name>
+            <ParamValueFloat>0</ParamValueFloat>
+            <ParamValueInt>0</ParamValueInt>
+            <ParamValueBool>false</ParamValueBool>
+          </HardParamValueModel>
+          <HardParamValueModel>
+            <Key>a606af78-35c8-4b71-9f7b-60ce8b72aae2</Key>
+            <Order>0</Order>
+            <SortOrder>0</SortOrder>
+            <IsSelected>false</IsSelected>
+            <ChangedEnabled>false</ChangedEnabled>
+            <Errors />
+            <Error />
+            <Name>新增位置1</Name>
+            <ParamValueFloat>0</ParamValueFloat>
+            <ParamValueInt>0</ParamValueInt>
+            <ParamValueBool>false</ParamValueBool>
+          </HardParamValueModel>
+          <HardParamValueModel>
+            <Key>2214f709-497d-45e8-a83a-6837a52a5f20</Key>
+            <Order>0</Order>
+            <SortOrder>0</SortOrder>
+            <IsSelected>false</IsSelected>
+            <ChangedEnabled>false</ChangedEnabled>
+            <Errors />
+            <Error />
+            <Name>新增位置2</Name>
+            <ParamValueFloat>0</ParamValueFloat>
+            <ParamValueInt>0</ParamValueInt>
+            <ParamValueBool>false</ParamValueBool>
+          </HardParamValueModel>
+          <HardParamValueModel>
+            <Key>aecdfb28-9c6a-4ad1-af46-2d6db9b64334</Key>
+            <Order>0</Order>
+            <SortOrder>0</SortOrder>
+            <IsSelected>false</IsSelected>
+            <ChangedEnabled>false</ChangedEnabled>
+            <Errors />
+            <Error />
+            <Name>剔除旋转度数</Name>
+            <ParamValueFloat>0</ParamValueFloat>
+            <ParamValueInt>0</ParamValueInt>
+            <ParamValueBool>false</ParamValueBool>
+          </HardParamValueModel>
+        </ParamList>
+      </HardModuleModel>
+    </HardModuleList>
+  </MainControlConfig>
+</HardConfigModel>
