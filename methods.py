@@ -95,20 +95,23 @@ def detect_infer(self, config):
     目标检测仿真
     """
     self.progress_bar_show = True
-    threading.Thread(target=detect_infer_cmd, args=(self, config)).start()
     config['running'] = True
+    threading.Thread(target=detect_infer_cmd, args=(self, config)).start()
     while config['running']: self.update()
 
 
 def detect_infer_cmd(self, config):
     img_paths = fFile().scan(config['scan_path'], img_suffixes)
     if len(img_paths) == 0:
-        self.message('图片为空', 'warning')
+        message, message_type = '图片为空', 'warning'
     else:
         if config['out_path'] == '': config['out_path'] = config['scan_path']
-        os.makedirs(os.path.dirname(config['out_path']), exist_ok=True)
+        os.makedirs(config['out_path'], exist_ok=True)
+        startupinfo = subprocess.STARTUPINFO()
+        startupinfo.dwFlags = subprocess.CREATE_NEW_CONSOLE | subprocess.STARTF_USESHOWWINDOW
+        startupinfo.wShowWindow = subprocess.SW_HIDE
         process = subprocess.Popen(['cmd'], stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE,
-                                   text=True, universal_newlines=True)
+                                   text=True, universal_newlines=True, startupinfo=startupinfo)
         commands = [
             config['exe_path'][:2],
             f'cd {os.path.dirname(config["exe_path"])}',
@@ -118,12 +121,13 @@ def detect_infer_cmd(self, config):
         process.stdin.flush()
         output, errors = process.communicate()
         if output.count('XML file saved successfully.') == len(img_paths):
-            self.message('仿真成功', 'info')
+            message, message_type = '仿真成功', 'info'
         else:
-            error(path=f'./convert/{fTime().format()}.txt', message=f'-----\nerrors: {errors}\n-----\noutput: {output}')
-            self.message('仿真失败', 'error')
+            error(path=f'./error/{fTime().format()}.txt', message=f'-----\nerrors: {errors}\n-----\noutput: {output}')
+            message, message_type = '仿真失败', 'error'
     config['running'] = False
     self.progress_bar_show = False
+    self.message(message, message_type)
 
 
 def detect_convert(self, config):
@@ -137,8 +141,11 @@ def detect_convert(self, config):
 
 
 def detect_convert_cmd(self, config):
+    startupinfo = subprocess.STARTUPINFO()
+    startupinfo.dwFlags = subprocess.CREATE_NEW_CONSOLE | subprocess.STARTF_USESHOWWINDOW
+    startupinfo.wShowWindow = subprocess.SW_HIDE
     process = subprocess.Popen(['cmd'], stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE,
-                               text=True, universal_newlines=True)
+                               text=True, universal_newlines=True, startupinfo=startupinfo)
     model_out_path = f'{config["model_out_folder"]}{config["model_out_name"]}'
     commands = [
         config['exe_path'][:2],
@@ -151,12 +158,13 @@ def detect_convert_cmd(self, config):
     if output.find('convert scussce\ncreate restult 1') != -1:
         os.makedirs(config['model_out_folder'], exist_ok=True)
         os.rename(f'{os.path.split(config["model_in_path"])[0]}/model.encode', model_out_path)
-        self.message('转换成功', 'info')
+        message, message_type = '转换成功', 'info'
     else:
-        error(path=f'./convert/{fTime().format()}.txt', message=f'-----\nerrors: {errors}\n-----\noutput: {output}')
-        self.message('转换失败', 'error')
+        error(path=f'./error/{fTime().format()}.txt', message=f'-----\nerrors: {errors}\n-----\noutput: {output}')
+        message, message_type = '转换失败', 'error'
     config['running'] = False
     self.progress_bar_show = False
+    self.message(message, message_type)
 
 
 def segment_aug(self, config):

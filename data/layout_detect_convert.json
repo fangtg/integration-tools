@@ -68,7 +68,7 @@
 			"model_out_name_combobox": {
 				"type": "Combobox",
 				"key": "model_out_name",
-				"value": ["/model.encode", "/best_batch_1.encode", "/mask_batch_1.encode"],
+				"value": ["/model.encode", "/best_batch_1.encode", "/color_best_batch_1.encode.encode", "/mask_batch_1.encode"],
 				"current": 0,
 				"width": 20,
 				"sticky": "w"

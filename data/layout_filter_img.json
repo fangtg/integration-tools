@@ -6,13 +6,15 @@
 				"text": "输入目录",
 				"key": "scan_path",
 				"command": "self.select_folder",
-				"width": 10
+				"width": 10,
+				"sticky": "e"
 			},
 			"scan_path_entry": {
 				"type": "Entry",
 				"key": "scan_path",
 				"width": 50,
-				"columnspan": 6
+				"columnspan": 6,
+				"sticky": "w"
 			}
 		},
 		"line_out": {
@@ -21,13 +23,15 @@
 				"text": "输入目录",
 				"key": "out_path",
 				"command": "self.select_folder",
-				"width": 10
+				"width": 10,
+				"sticky": "e"
 			},
 			"out_path_entry": {
 				"type": "Entry",
 				"key": "out_path",
 				"width": 50,
-				"columnspan": 6
+				"columnspan": 6,
+				"sticky": "w"
 			}
 		},
 		"line_filter": {
