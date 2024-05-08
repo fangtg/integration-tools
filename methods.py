@@ -94,11 +94,19 @@ def detect_infer(self, config):
     """
     目标检测仿真
     """
+    self.progress_bar_show = True
+    threading.Thread(target=detect_infer_cmd, args=(self, config)).start()
+    config['running'] = True
+    while config['running']: self.update()
+
+
+def detect_infer_cmd(self, config):
     img_paths = fFile().scan(config['scan_path'], img_suffixes)
-    self.progress_bar_max = len(img_paths)
-    if len(img_paths) > 0:
+    if len(img_paths) == 0:
+        self.message('图片为空', 'warning')
+    else:
+        if config['out_path'] == '': config['out_path'] = config['scan_path']
         os.makedirs(os.path.dirname(config['out_path']), exist_ok=True)
-        threading.Thread(target=check_infer, args=(self, img_paths)).start()
         process = subprocess.Popen(['cmd'], stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE,
                                    text=True, universal_newlines=True)
         commands = [
@@ -106,27 +114,49 @@ def detect_infer(self, config):
             f'cd {os.path.dirname(config["exe_path"])}',
             f'{os.path.basename(config["exe_path"])} -a {config["model_path"]} {config["ini_path"]} {config["scan_path"]} {config["out_path"]}'
         ]
-        for command in commands:
-            process.stdin.write(command)
-            process.stdin.write('\n')
+        for command in commands: process.stdin.write(f'{command}\n')
         process.stdin.flush()
         output, errors = process.communicate()
-        error(path=f'./infer/{fTime().format()}.txt', message=f'-----\nerrors: {errors}\n-----\noutput: {output}')
         if output.count('XML file saved successfully.') == len(img_paths):
-            self.progress_bar_max = len(img_paths)
-            return
-        raise ValueError(
-            f'num of success of output: {output.count("XML file saved successfully.")} < len(img_paths): {len(img_paths)}')
-    raise ValueError('len(img_paths) == 0')
+            self.message('仿真成功', 'info')
+        else:
+            error(path=f'./convert/{fTime().format()}.txt', message=f'-----\nerrors: {errors}\n-----\noutput: {output}')
+            self.message('仿真失败', 'error')
+    config['running'] = False
+    self.progress_bar_show = False
 
 
-def check_infer(self, img_paths):
-    for img_path in img_paths:
-        xml_path = f'{os.path.splitext(img_path)[0]}.xml'
-        while not os.path.exists(xml_path):
-            if self.progress_bar_value >= len(img_paths):
-                return
-        self.progress_bar_value += 1
+def detect_convert(self, config):
+    """
+    目标检测模型转换
+    """
+    self.progress_bar_show = True
+    threading.Thread(target=detect_convert_cmd, args=(self, config)).start()
+    config['running'] = True
+    while config['running']: self.update()
+
+
+def detect_convert_cmd(self, config):
+    process = subprocess.Popen(['cmd'], stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE,
+                               text=True, universal_newlines=True)
+    model_out_path = f'{config["model_out_folder"]}{config["model_out_name"]}'
+    commands = [
+        config['exe_path'][:2],
+        f'cd {os.path.dirname(config["exe_path"])}',
+        f'{os.path.basename(config["exe_path"])} -s {config["model_in_path"]} {model_out_path} {config["ini_path"]}'
+    ]
+    for command in commands: process.stdin.write(f'{command}\n')
+    process.stdin.flush()
+    output, errors = process.communicate()
+    if output.find('convert scussce\ncreate restult 1') != -1:
+        os.makedirs(config['model_out_folder'], exist_ok=True)
+        os.rename(f'{os.path.split(config["model_in_path"])[0]}/model.encode', model_out_path)
+        self.message('转换成功', 'info')
+    else:
+        error(path=f'./convert/{fTime().format()}.txt', message=f'-----\nerrors: {errors}\n-----\noutput: {output}')
+        self.message('转换失败', 'error')
+    config['running'] = False
+    self.progress_bar_show = False
 
 
 def segment_aug(self, config):
@@ -333,7 +363,7 @@ def obb_splice(self, config):
                 point[1] += (img1_h + img2_h)
         json1_data.extend(json2_data)
         json1_data.extend(json3_data)
-        img_path = f'{config["out_path"]}/{config["prefix"]}_{i}.png'
+        img_path = f'{config["out_path"]}/{config["prefix"]}_{str(i):0>4}_{random.randint(0, 99999999):0>8}.png'
         fImg().readin(img_path, img)
         fJsonMark().readin(img_path, img.shape[:2], json1_data)
 
@@ -551,7 +581,7 @@ def batch_modify_camera(self, config):
         camera_config_path = f'{config["configs_path"]}/{order}/CameraConfig.xml'
         camera_config = fXml().read(camera_config_path)
         for camera in camera_config['ArrayOfCameraConfigModel']['CameraConfigModel']:
-            if cameras[int(camera['Order'])-1] is False: continue
+            if cameras[int(camera['Order']) - 1] is False: continue
             if config['modify_type']:
                 if int(camera[modify_item]) == camera[modify_item]:
                     camera[modify_item] = int(camera[modify_item])

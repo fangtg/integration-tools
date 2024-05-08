@@ -1,5 +1,4 @@
 import sys
-import traceback
 import tkinter
 import tkinter.colorchooser
 import tkinter.ttk
@@ -45,6 +44,9 @@ class fWindow(tkinter.Tk):
             self.layout()
 
     def layout(self):
+        """
+        初始化布局
+        """
         layout_data = fJson().read(self.layout_path)
         for frame_name, frame_data in layout_data.items():
             frame = tkinter.Frame(self)
@@ -54,12 +56,15 @@ class fWindow(tkinter.Tk):
                 column_index = 0
                 for control_name, control_data in line_data.items():
                     c, keys = dict(), control_data.keys()
+                    c['columnspan'] = control_data['columnspan'] if 'columnspan' in keys else 1
+                    c['rowspan'] = control_data['rowspan'] if 'rowspan' in keys else 1
                     c['type'] = control_data['type'] if 'type' in keys else 'Label'  # 类型
                     c['text'] = control_data['text'] if 'text' in keys else None  # 文本
                     c['width'] = control_data['width'] if 'width' in keys else None  # 宽度
                     c['key'] = control_data['key'] if 'key' in keys else None  # 主键
                     c['command'] = control_data['command'] if 'command' in keys else None  # 按键命令
-                    c['value'] = control_data['value'] if 'value' in keys else None  # 单选框选项
+                    c['value'] = control_data['value'] if 'value' in keys else None  # 预置值
+                    c['current'] = control_data['current'] if 'current' in keys else 0  # 首选预置值
                     c['direction'] = control_data['direction'] if 'direction' in keys else None  # 单选框选项方向
                     c['filetypes'] = control_data['filetypes'] if 'filetypes' in keys else []  # 文件选择后缀名
                     c['lift'] = control_data['lift'] if 'lift' in keys else None  # 点击任务结束后是否置顶
@@ -87,8 +92,17 @@ class fWindow(tkinter.Tk):
                         var = tkinter.BooleanVar()
                         self.vars[c['key']] = var
                         control = tkinter.Checkbutton(frame, text=c['text'], width=c['width'], variable=var)
+                    elif c['type'] == 'Combobox':
+                        var = tkinter.StringVar()
+                        self.vars[c['key']] = var
+                        control = tkinter.ttk.Combobox(frame, textvariable=var, width=c['width'], values=c['value'])
+                        control.current(c['current'])
                     elif c['type'] == 'Progressbar':
                         control = tkinter.ttk.Progressbar(frame, length=c['width'])
+                        if c['value'] == 'loop':
+                            control['mode'] = 'indeterminate'
+                            control['orient'] = tkinter.HORIZONTAL
+                            control.start(c['current'])
                     elif c['type'] == 'Message':
                         var = tkinter.StringVar()
                         self.vars[c['key']] = var
@@ -96,10 +110,11 @@ class fWindow(tkinter.Tk):
                     else:
                         control = None
                     if c['key']: self.controls[c['key']] = control
-                    control.grid(row=row_index, column=column_index, sticky=c['sticky'])
+                    control.grid(row=row_index, column=column_index, rowspan=c['rowspan'], columnspan=c['columnspan'],
+                                 sticky=c['sticky'])
                     if c['type'] == 'Progressbar': control.grid_remove()
-                    column_index += 1
-                row_index += 1
+                    column_index += c['columnspan']
+                row_index += c['rowspan']
 
     def click(self, command, c):
         eval(f'{command}(c)')
@@ -114,8 +129,12 @@ class fWindow(tkinter.Tk):
         if not ico: ico = self.ico
         fToplevel(c['key'], title, size, ico)
 
-    def message(self, text: str = ''):
-        tkinter.messagebox.showerror(title=text, message=text)
+    def message(self, text: str = '', message_type: str = 'error'):
+        message_types = ['info', 'warning', 'error']
+        message_shows = [tkinter.messagebox.showinfo, tkinter.messagebox.showwarning, tkinter.messagebox.showerror]
+        message_info = ['提示', '警告', '错误']
+        message_type_index = message_types.index(message_type)
+        message_shows[message_type_index](title=message_info[message_type_index], message=text)
         self.lift()
 
     def confirm(self, c):
@@ -126,7 +145,7 @@ class fWindow(tkinter.Tk):
         try:
             eval(f'{self.method}(self, self.formatting_config())')
         except Exception:
-            self.message('参数错误')
+            self.message('执行失败')
             error(message=f'{fTime().format()}: {self.confirm.__name__}\n{traceback.format_exc()}')
         self.controls['confirm']['state'] = tkinter.NORMAL
 
@@ -172,7 +191,7 @@ class fWindow(tkinter.Tk):
                     else:
                         self.vars[key].set(value)
             except KeyError:
-                self.message('参数过多')
+                self.message('参数读取失败')
                 error(message=f'{fTime().format()}: {self.read.__name__}\n{traceback.format_exc()}')
 
     def readin_config(self, c):
@@ -201,9 +220,20 @@ class fWindow(tkinter.Tk):
 
     @progress_bar_max.setter
     def progress_bar_max(self, value: int):
-        self.controls['progress_bar'].grid()
+        self.progress_bar_show = True
         self.controls['progress_bar']['maximum'] = value
         self.progress_bar_value = 0
+
+    @property
+    def progress_bar_show(self):
+        return self.progress_bar_show
+
+    @progress_bar_show.setter
+    def progress_bar_show(self, show: bool = True):
+        if show:
+            self.controls['progress_bar'].grid()
+        else:
+            self.controls['progress_bar'].grid_remove()
 
     def formatting_config(self, is_save: bool = False):
         """
@@ -235,7 +265,7 @@ class fWindow(tkinter.Tk):
                 config[key] = value
             return config
         except Exception:
-            self.message('参数初始化错误')
+            self.message('参数初始化失败')
             error(message=f'{fTime().format()}: {self.formatting_config.__name__}\n{traceback.format_exc()}')
 
     def is_int(self, text: str):

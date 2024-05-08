@@ -18,6 +18,13 @@
 				"width": 20,
 				"key": "detect_infer",
 				"command": "self.new_window"
+			},
+			"detect_convert_button": {
+				"type": "Button",
+				"text": "模型转换",
+				"width": 20,
+				"key": "detect_convert",
+				"command": "self.new_window"
 			}
 		},
 		"line_segment": {

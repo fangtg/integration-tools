@@ -1,29 +1,30 @@
 {
-	"frame_path": {
+	"frame_config": {
 		"line_scan": {
 			"scan_path_button": {
 				"type": "Button",
 				"text": "输入目录",
 				"key": "scan_path",
-				"command": "self.select_folder"
+				"command": "self.select_folder",
+				"width": 10
 			},
 			"scan_path_entry": {
 				"type": "Entry",
-				"width": "50",
-				"key": "scan_path"
+				"key": "scan_path",
+				"width": 50,
+				"columnspan": 5
 			}
-		}
-	},
-	"frame_aug_configuration": {
-		"line_times": {
+		},
+		"line_cv": {
 			"color_low_label": {
 				"type": "Label",
 				"text": "颜色下限"
 			},
 			"color_low_entry": {
 				"type": "Entry",
-				"width": "5",
-				"key": "color_low"
+				"key": "color_low",
+				"sticky": "w",
+				"width": 10
 			},
 			"color_high_label": {
 				"type": "Label",
@@ -31,21 +32,21 @@
 			},
 			"color_high_entry": {
 				"type": "Entry",
-				"width": "5",
-				"key": "color_high"
+				"key": "color_high",
+				"width": 10
 			},
 			"box_label": {
 				"type": "Label",
-				"text": "盒"
+				"text": "盒",
+				"sticky": "e"
 			},
 			"box_entry": {
 				"type": "Entry",
-				"width": "5",
-				"key": "box"
+				"key": "box",
+				"width": 10,
+				"sticky": "e"
 			}
-		}
-	},
-	"frame2": {
+		},
 		"line_label": {
 			"label_label": {
 				"type": "Label",
@@ -53,28 +54,31 @@
 			},
 			"label_entry": {
 				"type": "Entry",
-				"width": "10",
-				"key": "label"
+				"key": "label",
+				"width": 10,
+				"sticky": "w"
 			},
 			"label_type_checkbutton": {
 				"type": "Checkbutton",
 				"text": "覆盖原标签",
-				"key": "label_type"
+				"key": "label_type",
+				"sticky": "w"
 			}
 		}
 	},
 	"frame_button": {
-		"line1": {
+		"line_confirm": {
 			"confirm_button": {
 				"type": "Button",
 				"text": "确认",
 				"key": "confirm",
-				"command": "self.confirm"
+				"command": "self.confirm",
+				"width": 10
 			}
 		}
 	},
-	"frame_progress_bar": {
-		"line1": {
+	"frame_progressbar": {
+		"line_progressbar": {
 			"progressbar": {
 				"type": "Progressbar",
 				"key": "progress_bar",

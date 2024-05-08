@@ -1,16 +1,17 @@
 {
-	"frame_path": {
+	"frame_config": {
 		"line_scan": {
 			"scan_path_button": {
 				"type": "Button",
 				"text": "输入目录",
 				"key": "scan_path",
-				"command": "self.select_folder"
+				"command": "self.select_folder",
+				"width": 10
 			},
 			"scan_path_entry": {
 				"type": "Entry",
-				"width": "50",
-				"key": "scan_path"
+				"key": "scan_path",
+				"width": 50
 			}
 		},
 		"line_out": {
@@ -18,27 +19,29 @@
 				"type": "Button",
 				"text": "输出目录",
 				"key": "out_path",
-				"command": "self.select_folder"
+				"command": "self.select_folder",
+				"width": 10
 			},
 			"out_path_entry": {
 				"type": "Entry",
-				"width": "50",
-				"key": "out_path"
+				"key": "out_path",
+				"width": 50
 			}
 		}
 	},
 	"frame_button": {
-		"line_1": {
+		"line_confirm": {
 			"confirm_button": {
 				"type": "Button",
 				"text": "确认",
 				"key": "confirm",
-				"command": "self.confirm"
+				"command": "self.confirm",
+				"width": 10
 			}
 		}
 	},
-	"frame_progress_bar": {
-		"line1": {
+	"frame_progressbar": {
+		"line_progressbar": {
 			"progressbar": {
 				"type": "Progressbar",
 				"key": "progress_bar",

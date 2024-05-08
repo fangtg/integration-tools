@@ -1,5 +1,5 @@
 {
-	"frame_path": {
+	"frame_config": {
 		"line_scan": {
 			"scan_path_label": {
 				"type": "Label",
@@ -7,8 +7,8 @@
 			},
 			"scan_path_entry": {
 				"type": "Entry",
-				"width": "50",
-				"key": "scan_path"
+				"key": "scan_path",
+				"width": 50
 			}
 		},
 		"line_out": {
@@ -18,18 +18,19 @@
 			},
 			"out_path_entry": {
 				"type": "Message",
-				"width": "1000",
-				"key": "out_path"
+				"key": "out_path",
+				"width": 1000
 			}
 		}
 	},
 	"frame_button": {
-		"line_1": {
+		"line_confirm": {
 			"confirm_button": {
 				"type": "Button",
 				"text": "确认",
 				"key": "confirm",
-				"command": "self.confirm"
+				"command": "self.confirm",
+				"width": 10
 			}
 		}
 	}

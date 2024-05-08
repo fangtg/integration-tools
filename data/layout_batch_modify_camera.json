@@ -5,23 +5,25 @@
 				"type": "Button",
 				"text": "Configs目录",
 				"key": "configs_path",
-				"command": "self.select_folder"
+				"command": "self.select_folder",
+				"width": 15
 			},
 			"configs_path_entry": {
 				"type": "Entry",
-				"width": "50",
-				"key": "configs_path"
+				"key": "configs_path",
+				"width": 50
 			}
 		},
 		"line_config": {
 			"config_label": {
 				"type": "Label",
-				"text": "模板名称限制"
+				"text": "模板名称限制",
+				"width": 15
 			},
 			"config_entry": {
 				"type": "Entry",
-				"width": "50",
-				"key": "config"
+				"key": "config",
+				"width": 50
 			}
 		}
 	},
@@ -30,101 +32,118 @@
 			"camera1_checkbutton": {
 				"type": "Checkbutton",
 				"text": "相机1 ",
-				"key": "camera1"
+				"key": "camera1",
+				"sticky": "w"
 			},
 			"camera2_checkbutton": {
 				"type": "Checkbutton",
 				"text": "相机2 ",
-				"key": "camera2"
+				"key": "camera2",
+				"sticky": "w"
 			},
 			"camera3_checkbutton": {
 				"type": "Checkbutton",
 				"text": "相机3 ",
-				"key": "camera3"
+				"key": "camera3",
+				"sticky": "w"
 			},
 			"camera4_checkbutton": {
 				"type": "Checkbutton",
 				"text": "相机4 ",
-				"key": "camera4"
+				"key": "camera4",
+				"sticky": "w"
 			},
 			"camera5_checkbutton": {
 				"type": "Checkbutton",
 				"text": "相机5 ",
-				"key": "camera5"
+				"key": "camera5",
+				"sticky": "w"
 			},
 			"camera6_checkbutton": {
 				"type": "Checkbutton",
 				"text": "相机6 ",
-				"key": "camera6"
+				"key": "camera6",
+				"sticky": "w"
 			}
 		},
 		"line_camera_2": {
 			"camera7_checkbutton": {
 				"type": "Checkbutton",
 				"text": "相机7 ",
-				"key": "camera7"
+				"key": "camera7",
+				"sticky": "w"
 			},
 			"camera8_checkbutton": {
 				"type": "Checkbutton",
 				"text": "相机8 ",
-				"key": "camera8"
+				"key": "camera8",
+				"sticky": "w"
 			},
 			"camera9_checkbutton": {
 				"type": "Checkbutton",
 				"text": "相机9 ",
-				"key": "camera9"
+				"key": "camera9",
+				"sticky": "w"
 			},
 			"camera10_checkbutton": {
 				"type": "Checkbutton",
 				"text": "相机10",
-				"key": "camera10"
+				"key": "camera10",
+				"sticky": "w"
 			}
 		},
 		"line_camera_3": {
 			"camera11_checkbutton": {
 				"type": "Checkbutton",
 				"text": "相机11",
-				"key": "camera11"
+				"key": "camera11",
+				"sticky": "w"
 			},
 			"camera12_checkbutton": {
 				"type": "Checkbutton",
 				"text": "相机12",
-				"key": "camera12"
+				"key": "camera12",
+				"sticky": "w"
 			},
 			"camera13_checkbutton": {
 				"type": "Checkbutton",
 				"text": "相机13",
-				"key": "camera13"
+				"key": "camera13",
+				"sticky": "w"
 			},
 			"camera14_checkbutton": {
 				"type": "Checkbutton",
 				"text": "相机14",
-				"key": "camera14"
+				"key": "camera14",
+				"sticky": "w"
 			}
 		},
 		"line_camera_4": {
 			"camera15_checkbutton": {
 				"type": "Checkbutton",
 				"text": "相机15",
-				"key": "camera15"
+				"key": "camera15",
+				"sticky": "w"
 			},
 			"camera16_checkbutton": {
 				"type": "Checkbutton",
 				"text": "相机16",
-				"key": "camera16"
+				"key": "camera16",
+				"sticky": "w"
 			}
 		}
 	},
 	"frame_modify": {
-		"line_1": {
+		"line_modify": {
 			"modify_item_label": {
 				"type": "Label",
-				"text": "修改条目"
+				"text": "修改条目",
+				"width": 10
 			},
 			"modify_item_entry": {
 				"type": "Entry",
-				"width": "20",
-				"key": "modify_item"
+				"key": "modify_item",
+				"width": 20
 			},
 			"modify_type_radiobutton": {
 				"type": "Radiobutton",
@@ -134,18 +153,19 @@
 			},
 			"modify_data_entry": {
 				"type": "Entry",
-				"width": "20",
-				"key": "modify_data"
+				"key": "modify_data",
+				"width": 20
 			}
 		}
 	},
 	"frame_button": {
-		"line_1": {
+		"line_confirm": {
 			"confirm_button": {
 				"type": "Button",
 				"text": "确认",
 				"key": "confirm",
-				"command": "self.confirm"
+				"command": "self.confirm",
+				"width": 10
 			}
 		}
 	}

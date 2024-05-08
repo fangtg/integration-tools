@@ -15,6 +15,11 @@
     "layout_path": "./data/layout_detect_infer.json",
     "method": "detect_infer"
   },
+  "detect_convert": {
+    "text": "目标检测模型转换",
+    "layout_path": "./data/layout_detect_convert.json",
+    "method": "detect_convert"
+  },
   "segment_aug": {
     "text": "目标分割图像增强",
     "layout_path": "./data/layout_segment_aug.json",

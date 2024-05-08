@@ -5,12 +5,13 @@
 				"type": "Button",
 				"text": "输入目录",
 				"key": "scan_path",
-				"command": "self.select_folder"
+				"command": "self.select_folder",
+				"width": 10
 			},
 			"scan_path_entry": {
 				"type": "Entry",
-				"width": "50",
-				"key": "scan_path"
+				"key": "scan_path",
+				"width": 50
 			}
 		},
 		"line_out": {
@@ -18,12 +19,13 @@
 				"type": "Button",
 				"text": "输出目录",
 				"key": "out_path",
-				"command": "self.select_folder"
+				"command": "self.select_folder",
+				"width": 10
 			},
 			"out_path_entry": {
 				"type": "Entry",
-				"width": "50",
-				"key": "out_path"
+				"key": "out_path",
+				"width": 50
 			}
 		}
 	},
@@ -35,19 +37,21 @@
 			},
 			"aug_times_entry": {
 				"type": "Entry",
-				"width": "5",
-				"key": "times"
+				"key": "times",
+				"width": 5
 			},
 			"aug_color_label": {
 				"type": "Button",
 				"text": "填充颜色",
 				"key": "select_color",
-				"command": "self.select_color"
+				"command": "self.select_color",
+				"width": 10
 			},
 			"aug_color_entry": {
 				"type": "Entry",
-				"width": "10",
-				"key": "mask_color"
+				"key": "mask_color",
+				"columnspan": 5,
+				"sticky": "w"
 			}
 		},
 		"line_resize": {
@@ -57,8 +61,8 @@
 			},
 			"angle_low_entry": {
 				"type": "Entry",
-				"width": "5",
-				"key": "angle_low"
+				"key": "angle_low",
+				"width": 5
 			},
 			"angle_high_label": {
 				"type": "Label",
@@ -66,8 +70,8 @@
 			},
 			"angle_high_entry": {
 				"type": "Entry",
-				"width": "5",
-				"key": "angle_high"
+				"key": "angle_high",
+				"width": 5
 			},
 			"angle_range_label": {
 				"type": "Label",
@@ -75,8 +79,8 @@
 			},
 			"angle_range_entry": {
 				"type": "Entry",
-				"width": "5",
-				"key": "angle_range"
+				"key": "angle_range",
+				"width": 5
 			}
 		},
 		"line_hsv": {
@@ -86,8 +90,8 @@
 			},
 			"hsv_ratio_entry": {
 				"type": "Entry",
-				"width": "5",
-				"key": "hsv_ratio"
+				"key": "hsv_ratio",
+				"width": 5
 			},
 			"hsv_limit_label": {
 				"type": "Label",
@@ -95,8 +99,8 @@
 			},
 			"hsv_limit_entry": {
 				"type": "Entry",
-				"width": "5",
-				"key": "hsv_limit"
+				"key": "hsv_limit",
+				"width": 5
 			}
 		},
 		"line_math": {
@@ -106,8 +110,8 @@
 			},
 			"sharpen_entry": {
 				"type": "Entry",
-				"width": "5",
-				"key": "sharpen"
+				"key": "sharpen",
+				"width": 5
 			},
 			"gaussnoise_label": {
 				"type": "Label",
@@ -115,8 +119,8 @@
 			},
 			"gaussnoise_entry": {
 				"type": "Entry",
-				"width": "5",
-				"key": "gaussnoise"
+				"key": "gaussnoise",
+				"width": 5
 			},
 			"gaussblur_label": {
 				"type": "Label",
@@ -124,8 +128,8 @@
 			},
 			"gaussblur_entry": {
 				"type": "Entry",
-				"width": "5",
-				"key": "gaussblur"
+				"key": "gaussblur",
+				"width": 5
 			}
 		},
 		"line_bright_contrast": {
@@ -135,8 +139,8 @@
 			},
 			"brightness_low_entry": {
 				"type": "Entry",
-				"width": "5",
-				"key": "brightness_low"
+				"key": "brightness_low",
+				"width": 5
 			},
 			"brightness_high_label": {
 				"type": "Label",
@@ -144,8 +148,8 @@
 			},
 			"brightness_high_entry": {
 				"type": "Entry",
-				"width": "5",
-				"key": "brightness_high"
+				"key": "brightness_high",
+				"width": 5
 			},
 			"contrast_low_label": {
 				"type": "Label",
@@ -153,8 +157,8 @@
 			},
 			"contrast_low_entry": {
 				"type": "Entry",
-				"width": "5",
-				"key": "contrast_low"
+				"key": "contrast_low",
+				"width": 5
 			},
 			"contrast_high_label": {
 				"type": "Label",
@@ -162,8 +166,8 @@
 			},
 			"contrast_high_entry": {
 				"type": "Entry",
-				"width": "5",
-				"key": "contrast_high"
+				"key": "contrast_high",
+				"width": 5
 			},
 			"randombrightnesscontrast_label": {
 				"type": "Label",
@@ -171,8 +175,8 @@
 			},
 			"randombrightnesscontrast_entry": {
 				"type": "Entry",
-				"width": "5",
-				"key": "randombrightnesscontrast"
+				"key": "randombrightnesscontrast",
+				"width": 5
 			}
 		}
 	},
@@ -191,29 +195,32 @@
 		}
 	},
 	"frame_button": {
-		"line1": {
+		"line_buttons": {
 			"readin_button": {
 				"type": "Button",
 				"text": "写入配置",
 				"key": "readin",
-				"command": "self.readin_config"
+				"command": "self.readin_config",
+				"width": 10
 			},
 			"read_button": {
 				"type": "Button",
 				"text": "读取配置",
 				"key": "read",
-				"command": "self.read_config"
+				"command": "self.read_config",
+				"width": 10
 			},
 			"confirm_button": {
 				"type": "Button",
 				"text": "确认增强",
 				"key": "confirm",
-				"command": "self.confirm"
+				"command": "self.confirm",
+				"width": 10
 			}
 		}
 	},
-	"frame_progress_bar": {
-		"line1": {
+	"frame_progressbar": {
+		"line_progressbar": {
 			"progressbar": {
 				"type": "Progressbar",
 				"key": "progress_bar",

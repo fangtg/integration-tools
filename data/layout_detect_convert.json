@@ -1,0 +1,99 @@
+{
+	"frame_config": {
+		"line_exe": {
+			"exe_path_button": {
+				"type": "Button",
+				"text": "转换器",
+				"key": "exe_path",
+				"command": "self.select_file",
+				"filetypes": [[".exe", ".EXE"]],
+				"width": 10
+			},
+			"exe_path_entry": {
+				"type": "Entry",
+				"key": "exe_path",
+				"width": "50",
+				"columnspan": 2,
+				"sticky": "w"
+			}
+		},
+		"line_model_in": {
+			"model_in_path_button": {
+				"type": "Button",
+				"text": "输入模型",
+				"key": "model_in_path",
+				"command": "self.select_file",
+				"filetypes": [[".wt",".WT"],[".wts",".WTS"]],
+				"width": 10
+			},
+			"model_in_path_entry": {
+				"type": "Entry",
+				"key": "model_in_path",
+				"width": "50",
+				"columnspan": 2,
+				"sticky": "w"
+			}
+		},
+		"line_ini": {
+			"ini_path_button": {
+				"type": "Button",
+				"text": "配置文件",
+				"key": "ini_path",
+				"command": "self.select_file",
+				"filetypes": [[".ini", ".INI"]],
+				"width": 10
+			},
+			"ini_path_entry": {
+				"type": "Entry",
+				"key": "ini_path",
+				"width": "50",
+				"columnspan": 2,
+				"sticky": "w"
+			}
+		},
+		"line_model_out": {
+			"model_out_folder_button": {
+				"type": "Button",
+				"text": "输出模型",
+				"key": "model_out_folder",
+				"command": "self.select_folder",
+				"width": 10
+			},
+			"model_out_folder_entry": {
+				"type": "Entry",
+				"key": "model_out_folder",
+				"width": 40,
+				"sticky": "e"
+			},
+			"model_out_name_combobox": {
+				"type": "Combobox",
+				"key": "model_out_name",
+				"value": ["/model.encode", "/best_batch_1.encode", "/mask_batch_1.encode"],
+				"current": 0,
+				"width": 20,
+				"sticky": "w"
+			}
+		},
+		"line_progressbar": {
+			"progressbar": {
+				"type": "Progressbar",
+				"key": "progress_bar",
+				"value": "loop",
+				"current": 10,
+				"sticky": "w,e,n,s",
+				"columnspan": 3
+			}
+		}
+	},
+	"frame_button": {
+		"line_confirm": {
+			"confirm_button": {
+				"type": "Button",
+				"text": "确认",
+				"key": "confirm",
+				"command": "self.confirm",
+				"width": 10
+			}
+		}
+	}
+}
