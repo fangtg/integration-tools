@@ -120,7 +120,7 @@ def detect_infer_cmd(self, config):
         for command in commands: process.stdin.write(f'{command}\n')
         process.stdin.flush()
         output, errors = process.communicate()
-        if output.count('XML file saved successfully.') == len(img_paths):
+        if output.count('XML file saved successfully.') == len(img_paths) or output.count('get detect num') == len(img_paths):
             message, message_type = '仿真成功', 'info'
         else:
             error(path=f'./error/{fTime().format()}.txt', message=f'-----\nerrors: {errors}\n-----\noutput: {output}')

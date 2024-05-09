@@ -17,14 +17,16 @@
 				"text": "图像仿真",
 				"width": 20,
 				"key": "detect_infer",
-				"command": "self.new_window"
+				"command": "self.new_window",
+				"fg": "red"
 			},
 			"detect_convert_button": {
 				"type": "Button",
 				"text": "模型转换",
 				"width": 20,
 				"key": "detect_convert",
-				"command": "self.new_window"
+				"command": "self.new_window",
+				"fg": "red"
 			}
 		},
 		"line_segment": {

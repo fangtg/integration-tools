@@ -69,6 +69,8 @@ class fWindow(tkinter.Tk):
                     c['filetypes'] = control_data['filetypes'] if 'filetypes' in keys else []  # 文件选择后缀名
                     c['lift'] = control_data['lift'] if 'lift' in keys else None  # 点击任务结束后是否置顶
                     c['sticky'] = control_data['sticky'] if 'sticky' in keys else ''  # 对齐
+                    c['bg'] = control_data['bg'] if 'bg' in keys else None
+                    c['fg'] = control_data['fg'] if 'fg' in keys else None
 
                     if c['type'] == 'Label':
                         control = tkinter.Label(frame, text=c['text'], width=c['width'])
@@ -79,7 +81,8 @@ class fWindow(tkinter.Tk):
                     elif c['type'] == 'Button':
                         control = tkinter.Button(frame, text=c['text'], width=c['width'],
                                                  command=lambda command=c['command'], config=c: self.click(command,
-                                                                                                           config))
+                                                                                                           config),
+                                                 fg=c['fg'])
                     elif c['type'] == 'Radiobutton':
                         control = tkinter.Frame(frame)
                         var = tkinter.IntVar()
